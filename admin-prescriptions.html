@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prescription Verification | Stackly Pharmacy</title>
+<meta name="description" content="Verify incoming prescriptions, clear interaction queries and keep the audit trail complete.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dash-body">
+
+<a class="skip" href="#dashmain">Skip to content</a>
+<div class="glow"></div>
+<div class="prog"></div>
+
+<aside class="dside">
+  <div class="dside-brand">
+    <a class="logo" href="admin-dashboard.html"><img class="logo-img" src="Assets/logo.webp" alt="Stackly admin console" width="2170" height="725"></a>
+    <button class="dside-x" aria-label="Close navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <nav class="dside-nav" id="dashnav">
+    <span class="dgroup-lbl">Operations</span>
+    <a class="dnav" href="admin-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg><span>Overview</span></a>
+    <a class="dnav" href="admin-orders.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span>Orders</span><em class="dnav-n">18</em></a>
+    <a class="dnav is-active" href="admin-prescriptions.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg><span>Prescriptions</span><em class="dnav-n dnav-n--coral">7</em></a>
+    <a class="dnav" href="admin-inventory.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg><span>Inventory</span><em class="dnav-n">4</em></a>
+    <a class="dnav" href="admin-customers.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg><span>Customers</span></a>
+    <a class="dnav" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>Back to website</span></a>
+  </nav>
+
+  <div class="dside-foot">
+    <div class="dside-card">
+      <span class="ava ava--violet">MN</span>
+      <span class="dn-user-txt"><b>Meera Nair</b><small>Chinna Thirupathi branch</small></span>
+      <a class="dside-out" href="signin.html" aria-label="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+      </a>
+    </div>
+  </div>
+</aside>
+<div class="dscrim"></div>
+
+<div class="dash">
+
+  <header class="dtop">
+    <div class="dtop-in">
+      <button class="icon-btn dtop-burger" data-side-open aria-label="Open navigation" aria-expanded="false" aria-controls="dashnav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <button class="icon-btn dtop-rail" data-rail aria-label="Collapse sidebar" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
+      </button>
+      <div class="dtop-crumb">
+        <h1>Prescription desk</h1>
+        <p>7 awaiting verification &middot; 3 interaction queries open</p>
+      </div>
+      <div class="dtop-act">
+        <label class="dsearch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.1-4.1"/></svg>
+          <input type="search" placeholder="Search patients, drugs or prescribers&hellip;" aria-label="Search">
+          <kbd>/</kbd>
+        </label>
+        <button class="icon-btn" data-dd="notif" aria-label="Notifications" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.27 21a2 2 0 0 0 3.46 0"/><path d="M3.26 15.33A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.67C19.41 13.87 18 12.3 18 8A6 6 0 0 0 6 8c0 4.3-1.41 5.87-2.74 7.33"/></svg>
+          <span class="badge">4</span>
+        </button>
+        <button class="duser" data-dd="usermenu" aria-label="Your account" aria-expanded="false">
+          <span class="ava ava--violet">MN</span>
+          <span class="duser-tx"><b>Meera</b><small>Store Manager</small></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="ddrop" data-ddpanel="notif">
+      <div class="ddrop-hd"><b>Operations feed</b><span>4 unread</span></div>
+      <a class="dnote" href="admin-prescriptions.html">
+        <span class="dnote-ic--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+        <span style="flex:1"><b>7 prescriptions need review</b><small>Oldest waiting 2h 14m</small></span><time>4m</time>
+      </a>
+      <a class="dnote" href="admin-inventory.html">
+        <span class="dnote-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg></span>
+        <span style="flex:1"><b>4 SKUs below reorder level</b><small>Insulin glargine is critical</small></span><time>26m</time>
+      </a>
+      <a class="dnote" href="admin-orders.html">
+        <span class="dnote-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+        <span style="flex:1"><b>18 orders queued for packing</b><small>5 must ship before 6 PM</small></span><time>1h</time>
+      </a>
+      <a class="dnote" href="admin-dashboard.html">
+        <span class="dnote-ic--violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+        <span style="flex:1"><b>Evening handover at 6:00 PM</b><small>Shift notes from Karthik S.</small></span><time>3h</time>
+      </a>
+      <div class="ddrop-ft"><a href="admin-dashboard.html">Open operations feed<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+
+    <div class="ddrop" data-ddpanel="usermenu">
+      <div class="ddrop-hd"><b>Meera Nair</b><span>meera.nair@gmail.com</span></div>
+      <ul class="dmenu">
+        <li><a href="admin-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.2.6.74 1.01 1.36 1.02H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>Store settings</a></li>
+        <li><a href="admin-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Back to console</a></li>
+        <li><a class="is-bad" href="signin.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>Sign out</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="dmain" id="dashmain">
+<!-- 1 · QUEUE KPIs -->
+    <section class="dsec" data-rv>
+      <div class="kpis">
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic kpi-ic--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg></span>
+            <span class="ddelta ddelta--down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>oldest 2h 14m</span>
+          </div>
+          <div class="kpi-v"><span data-count="7">0</span></div>
+          <div class="kpi-l">Awaiting verification</div>
+          <div class="kpi-foot">5 need a registered pharmacist</div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></span>
+            <span class="ddelta ddelta--down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>2 high severity</span>
+          </div>
+          <div class="kpi-v"><span data-count="3">0</span></div>
+          <div class="kpi-l">Interaction queries open</div>
+          <div class="kpi-foot">Prescriber has not responded yet</div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>14% vs last week</span>
+          </div>
+          <div class="kpi-v"><span data-count="64">0</span></div>
+          <div class="kpi-l">Scripts signed today</div>
+          <div class="kpi-foot">Across 3 pharmacists on shift</div>
+        </article>
+
+        <article class="kpi kpi--dark">
+          <div class="kpi-top">
+            <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+            <span class="ddelta ddelta--flat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>target 10m</span>
+          </div>
+          <div class="kpi-v"><span data-count="7">0</span>m</div>
+          <div class="kpi-l">Average review time</div>
+          <div class="kpi-foot">Dropped from 9m 40s this month</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2 · VERIFICATION QUEUE -->
+    <section class="dsec" data-rv>
+      <div class="panel">
+        <div class="panel-hd">
+          <div>
+            <h3>Verification queue</h3>
+            <p><b data-rows data-for="rx">0</b> of <b data-total data-for="rx">0</b> prescriptions in the queue</p>
+          </div>
+          <div class="dfilters" data-tfilter data-for="rx">
+            <button class="pill is-on" data-f="all">All</button>
+            <button class="pill" data-f="Pending">Pending</button>
+            <button class="pill" data-f="Interaction query">Interaction query</button>
+            <button class="pill" data-f="Clinician query">Clinician query</button>
+            <button class="pill" data-f="Signed">Signed</button>
+          </div>
+          <div class="panel-hd-act">
+            <label class="dsearch dsearch--sm">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.1-4.1"/></svg>
+              <input type="search" data-tsearch data-for="rx" placeholder="Search patient, drug or doctor&hellip;" aria-label="Search verification queue">
+            </label>
+          </div>
+        </div>
+        <div class="panel-bd panel-bd--flush">
+          <div class="dt-wrap">
+            <table class="dtable" data-table="rx" data-page-size="5">
+              <thead>
+                <tr>
+                  <th class="is-sortable" data-sort="id">Rx<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th class="is-sortable" data-sort="drug">Drug<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th>Prescriber</th>
+                  <th class="is-sortable" data-sort="age">Waiting<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th>Status</th>
+                  <th class="right">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-status="Interaction query" data-search="rx-3391 nikhil joshi amoxicillin 500 mg dr mehta allergy penicillin" data-k-id="3391" data-k-drug="amoxicillin" data-k-age="134">
+                  <td data-label="Rx"><span class="mono">#RX-3391</span></td>
+                  <td data-label="Drug"><div class="dt-user-tx"><b>Amoxicillin 500 mg</b><small>1 strip of 10 &middot; Ananya Rao</small></div></td>
+                  <td data-label="Prescriber"><div class="dt-user-tx"><b>Dr. Anita Mehta</b><small>Chinna Thirupathi clinic</small></div></td>
+                  <td data-label="Waiting"><span class="num">2h 14m</span></td>
+                  <td data-label="Status"><span class="sp sp--bad">Interaction query</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Query sent to Dr. Mehta for #RX-3391." aria-label="Send query"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/></svg></button>
+                    <button class="dt-act dt-act--coral" data-rowact data-msg="#RX-3391 held pending a prescriber reply." aria-label="Hold prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Pending" data-search="rx-3388 meera krishnan metformin 500 mg dr iyer" data-k-id="3388" data-k-drug="metformin" data-k-age="96">
+                  <td data-label="Rx"><span class="mono">#RX-3388</span></td>
+                  <td data-label="Drug"><div class="dt-user-tx"><b>Metformin 500 mg</b><small>2 strips of 15 &middot; Sunil Prasad</small></div></td>
+                  <td data-label="Prescriber"><div class="dt-user-tx"><b>Dr. Ravi Iyer</b><small>Whitefield clinic</small></div></td>
+                  <td data-label="Waiting"><span class="num">1h 36m</span></td>
+                  <td data-label="Status"><span class="sp sp--live">Pending</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="#RX-3388 verified and sent to dispensing." aria-label="Verify prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Clinician query" data-search="rx-3385 priya bhat insulin glargine 100 u/ml dr kapoor dose" data-k-id="3385" data-k-drug="insulin glargine" data-k-age="72">
+                  <td data-label="Rx"><span class="mono">#RX-3385</span></td>
+                  <td data-label="Drug"><div class="dt-user-tx"><b>Insulin glargine 100 U/ml</b><small>2 pens &middot; Lakshmi Narayan</small></div></td>
+                  <td data-label="Prescriber"><div class="dt-user-tx"><b>Dr. Sameer Kapoor</b><small>Sunshine clinic</small></div></td>
+                  <td data-label="Waiting"><span class="num">1h 12m</span></td>
+                  <td data-label="Status"><span class="sp sp--warn">Clinician query</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Clarification sent to Dr. Kapoor for #RX-3385." aria-label="Send clarification"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Pending" data-search="rx-3382 arun pillai atorvastatin 10 mg dr nair" data-k-id="3382" data-k-drug="atorvastatin" data-k-age="48">
+                  <td data-label="Rx"><span class="mono">#RX-3382</span></td>
+                  <td data-label="Drug"><div class="dt-user-tx"><b>Atorvastatin 10 mg</b><small>1 strip of 10 &middot; Rekha Iyer</small></div></td>
+                  <td data-label="Prescriber"><div class="dt-user-tx"><b>Dr. Kavya Nair</b><small>Chinna Thirupathi clinic</small></div></td>
+                  <td data-label="Waiting"><span class="num">48 min</span></td>
+                  <td data-label="Status"><span class="sp sp--live">Pending</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="#RX-3382 verified and sent to dispensing." aria-label="Verify prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Signed" data-search="rx-3379 divya sri paracetamol 650 mg dr shetty" data-k-id="3379" data-k-drug="paracetamol" data-k-age="11">
+                  <td data-label="Rx"><span class="mono">#RX-3379</span></td>
+                  <td data-label="Drug"><div class="dt-user-tx"><b>Paracetamol 650 mg</b><small>2 strips of 10 &middot; Imran Baig</small></div></td>
+                  <td data-label="Prescriber"><div class="dt-user-tx"><b>Dr. Farah Shetty</b><small>Koramangala clinic</small></div></td>
+                  <td data-label="Waiting"><span class="num">11 min</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Signed</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Fatima Sheikh signed #RX-3379." aria-label="View signature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Interaction query" data-search="rx-3375 rohit khanna warfarin 5 mg dr bhatt nsaid" data-k-id="3375" data-k-drug="warfarin" data-k-age="29">
+                  <td data-label="Rx"><span class="mono">#RX-3375</span></td>
+                  <td data-label="Drug"><div class="dt-user-tx"><b>Warfarin 5 mg</b><small>1 strip of 10 &middot; Sunita Devi</small></div></td>
+                  <td data-label="Prescriber"><div class="dt-user-tx"><b>Dr. Neel Bhatt</b><small>City clinic</small></div></td>
+                  <td data-label="Waiting"><span class="num">29 min</span></td>
+                  <td data-label="Status"><span class="sp sp--bad">Interaction query</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Query sent to Dr. Bhatt about the NSAID combination." aria-label="Send query"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/></svg></button>
+                    <button class="dt-act dt-act--coral" data-rowact data-msg="#RX-3375 held pending a prescriber reply." aria-label="Hold prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Pending" data-search="rx-3372 kavya menon levothyroxine 50 mcg dr rao" data-k-id="3372" data-k-drug="levothyroxine" data-k-age="19">
+                  <td data-label="Rx"><span class="mono">#RX-3372</span></td>
+                  <td data-label="Drug"><div class="dt-user-tx"><b>Levothyroxine 50 mcg</b><small>1 strip of 10 &middot; Gautam Roy</small></div></td>
+                  <td data-label="Prescriber"><div class="dt-user-tx"><b>Dr. Priya Rao</b><small>Whitefield clinic</small></div></td>
+                  <td data-label="Waiting"><span class="num">19 min</span></td>
+                  <td data-label="Status"><span class="sp sp--live">Pending</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="#RX-3372 verified and sent to dispensing." aria-label="Verify prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Signed" data-search="rx-3368 anil kumar amlodipine 5 mg dr ghosh" data-k-id="3368" data-k-drug="amlodipine" data-k-age="6">
+                  <td data-label="Rx"><span class="mono">#RX-3368</span></td>
+                  <td data-label="Drug"><div class="dt-user-tx"><b>Amlodipine 5 mg</b><small>1 strip of 10 &middot; Farida Begum</small></div></td>
+                  <td data-label="Prescriber"><div class="dt-user-tx"><b>Dr. Tapan Ghosh</b><small>Chinna Thirupathi clinic</small></div></td>
+                  <td data-label="Waiting"><span class="num">6 min</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Signed</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Rahul Verma signed #RX-3368." aria-label="View signature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel-ft">
+          <div class="dpag" data-pag data-for="rx">
+            <span class="dl">Rows per page</span>
+            <div class="dpag-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · ALERTS + WORKLOAD -->
+    <section class="dsec" data-rv>
+      <div class="dgrid dg-2">
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Interaction alerts</h3>
+              <p>Raised by the clinical rules engine</p>
+            </div>
+            <span class="sp sp--bad">3 open</span>
+          </div>
+          <div class="panel-bd">
+            <div class="dprog-row">
+              <div class="dprog-ic">
+                <span class="kpi-ic kpi-ic--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></span>
+                <span class="dprog-ic-tx"><b>Penicillin allergy against amoxicillin</b><small>Nikhil Joshi, 34 &middot; high severity &middot; query sent 2h ago</small></span>
+                <span class="sp sp--bad">High</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="kpi-ic kpi-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4 12h16"/><circle cx="12" cy="12" r="9"/></svg></span>
+                <span class="dprog-ic-tx"><b>Warfarin with a new NSAID</b><small>Sunita Devi, 67 &middot; bleeding risk &middot; query sent 29m ago</small></span>
+                <span class="sp sp--warn">Medium</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+                <span class="dprog-ic-tx"><b>Insulin dose above the recorded maximum</b><small>Lakshmi Narayan, 58 &middot; 24 U &middot; awaiting clinician</small></span>
+                <span class="sp sp--warn">Medium</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="ava ava--sky">FS</span>
+                <span class="dprog-ic-tx"><b>Resolved: duplicate therapy flagged</b><small>Two atorvastatin strips for the same patient &middot; merged by Fatima Sheikh</small></span>
+                <span class="sp sp--ok">Closed</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <span>Rules engine last synced <b style="color:var(--ink)">14 minutes ago</b> &middot; 41 rules active</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Pharmacist workload</h3>
+              <p>Scripts handled today</p>
+            </div>
+            <div class="panel-hd-act">
+              <button class="pill" data-rowact data-msg="Workload rebalanced: 4 scripts moved to Fatima.">Rebalance</button>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="dprog-row">
+              <div class="dprog-ic">
+                <span class="ava ava--coral">FS</span>
+                <span class="dprog-ic-tx"><b>Fatima Sheikh</b><small>7 signed &middot; 1 query raised &middot; avg 5m 40s</small><span class="dprog dprog--coral"><i style="--w:88%"></i></span></span>
+                <span class="sp sp--ok">At capacity</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="ava ava--sky">RV</span>
+                <span class="dprog-ic-tx"><b>Rahul Verma</b><small>2 signed &middot; 2 on hold &middot; avg 8m 10s</small><span class="dprog dprog--sky"><i style="--w:32%"></i></span></span>
+                <span class="sp sp--info">Available</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="ava ava--violet">SM</span>
+                <span class="dprog-ic-tx"><b>Sneha Modi</b><small>3 signed &middot; avg 6m 20s &middot; returns at 4 PM</small><span class="dprog dprog--violet"><i style="--w:48%"></i></span></span>
+                <span class="sp sp--info">Available</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="ava">AJ</span>
+                <span class="dprog-ic-tx"><b>Anil Joseph</b><small>On leave today &middot; back on 30 Sep</small><span class="dprog dprog--coral"><i style="--w:0%"></i></span></span>
+                <span class="sp sp--mute">Away</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <span>Team total <b style="color:var(--ink)">64 scripts</b> &middot; 7 still open</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4 · AUDIT TRAIL -->
+    <section class="dsec" data-rv>
+      <div class="panel">
+        <div class="panel-hd">
+          <div>
+            <h3>Audit trail</h3>
+            <p>Every verification action is logged for the regulator</p>
+          </div>
+          <div class="panel-hd-act">
+            <button class="pill" data-rowact data-msg="Audit trail for 29 Sep exported as CSV.">Export log</button>
+          </div>
+        </div>
+        <div class="panel-bd">
+          <ul class="feed">
+            <li class="feed-i">
+              <span class="feed-dot feed-dot--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span class="feed-tx"><b>#RX-3379 signed by Fatima Sheikh</b><small>Paracetamol 650 mg &middot; counter 1 &middot; signature captured on the pad &middot; 2:31 PM</small></span>
+            </li>
+            <li class="feed-i">
+              <span class="feed-dot feed-dot--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/></svg></span>
+              <span class="feed-tx"><b>Interaction query sent to Dr. Anita Mehta</b><small>#RX-3391 &middot; penicillin allergy conflict &middot; 12:26 PM</small></span>
+            </li>
+            <li class="feed-i">
+              <span class="feed-dot feed-dot--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></span>
+              <span class="feed-tx"><b>Dosage clarification requested from Dr. Sameer Kapoor</b><small>#RX-3385 &middot; insulin glargine 24 U &middot; 1:28 PM</small></span>
+            </li>
+            <li class="feed-i">
+              <span class="feed-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+              <span class="feed-tx"><b>Substitution accepted by the prescriber</b><small>#RX-3394 &middot; naproxen swapped for celecoxib &middot; 1:02 PM</small></span>
+            </li>
+            <li class="feed-i">
+              <span class="feed-dot feed-dot--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span class="feed-tx"><b>#RX-3381 signed by Rahul Verma</b><small>Amlodipine 5 mg &middot; remote verification &middot; 12:44 PM</small></span>
+            </li>
+          </ul>
+        </div>
+        <div class="panel-ft">
+          <span>Logs are retained for <b style="color:var(--ink)">7 years</b> and are read only once written</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<button class="back-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="toast-wrap"></div>
+
+<script src="js/script.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

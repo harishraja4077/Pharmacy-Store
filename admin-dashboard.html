@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operations Overview | Stackly Pharmacy</title>
+<meta name="description" content="Revenue, fill rate, prescription queue and live order status across every Stackly branch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dash-body">
+
+<a class="skip" href="#dashmain">Skip to content</a>
+<div class="glow"></div>
+<div class="prog"></div>
+
+<aside class="dside">
+  <div class="dside-brand">
+    <a class="logo" href="admin-dashboard.html"><img class="logo-img" src="Assets/logo.webp" alt="Stackly admin console" width="2170" height="725"></a>
+    <button class="dside-x" aria-label="Close navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <nav class="dside-nav" id="dashnav">
+    <span class="dgroup-lbl">Operations</span>
+    <a class="dnav is-active" href="admin-dashboard.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg><span>Overview</span></a>
+    <a class="dnav" href="admin-orders.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span>Orders</span><em class="dnav-n">18</em></a>
+    <a class="dnav" href="admin-prescriptions.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg><span>Prescriptions</span><em class="dnav-n dnav-n--coral">7</em></a>
+    <a class="dnav" href="admin-inventory.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg><span>Inventory</span><em class="dnav-n">4</em></a>
+    <a class="dnav" href="admin-customers.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg><span>Customers</span></a>
+    <a class="dnav" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>Back to website</span></a>
+  </nav>
+
+  <div class="dside-foot">
+    <div class="dside-card">
+      <span class="ava ava--violet">MN</span>
+      <span class="dn-user-txt"><b>Meera Nair</b><small>Chinna Thirupathi branch</small></span>
+      <a class="dside-out" href="signin.html" aria-label="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+      </a>
+    </div>
+  </div>
+</aside>
+<div class="dscrim"></div>
+
+<div class="dash">
+
+  <header class="dtop">
+    <div class="dtop-in">
+      <button class="icon-btn dtop-burger" data-side-open aria-label="Open navigation" aria-expanded="false" aria-controls="dashnav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <button class="icon-btn dtop-rail" data-rail aria-label="Collapse sidebar" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
+      </button>
+      <div class="dtop-crumb">
+        <h1>Operations</h1>
+        <p>Chinna Thirupathi branch &middot; 29 Sep 2026, 2:40 PM</p>
+      </div>
+      <div class="dtop-act">
+        <label class="dsearch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.1-4.1"/></svg>
+          <input type="search" placeholder="Search orders or customers&hellip;" aria-label="Search">
+          <kbd>/</kbd>
+        </label>
+        <button class="icon-btn" data-dd="notif" aria-label="Notifications" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.27 21a2 2 0 0 0 3.46 0"/><path d="M3.26 15.33A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.67C19.41 13.87 18 12.3 18 8A6 6 0 0 0 6 8c0 4.3-1.41 5.87-2.74 7.33"/></svg>
+          <span class="badge">4</span>
+        </button>
+        <button class="duser" data-dd="usermenu" aria-label="Your account" aria-expanded="false">
+          <span class="ava ava--violet">MN</span>
+          <span class="duser-tx"><b>Meera</b><small>Store Manager</small></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="ddrop" data-ddpanel="notif">
+      <div class="ddrop-hd"><b>Operations feed</b><span>4 unread</span></div>
+      <a class="dnote" href="admin-prescriptions.html">
+        <span class="dnote-ic--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+        <span style="flex:1"><b>7 prescriptions need review</b><small>Oldest waiting 2h 14m</small></span><time>4m</time>
+      </a>
+      <a class="dnote" href="admin-inventory.html">
+        <span class="dnote-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg></span>
+        <span style="flex:1"><b>4 SKUs below reorder level</b><small>Insulin glargine is critical</small></span><time>26m</time>
+      </a>
+      <a class="dnote" href="admin-orders.html">
+        <span class="dnote-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+        <span style="flex:1"><b>18 orders queued for packing</b><small>5 must ship before 6 PM</small></span><time>1h</time>
+      </a>
+      <a class="dnote" href="admin-dashboard.html">
+        <span class="dnote-ic--violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+        <span style="flex:1"><b>Evening handover at 6:00 PM</b><small>Shift notes from Karthik S.</small></span><time>3h</time>
+      </a>
+      <div class="ddrop-ft"><a href="admin-dashboard.html">Open operations feed<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+
+    <div class="ddrop" data-ddpanel="usermenu">
+      <div class="ddrop-hd"><b>Meera Nair</b><span>meera.nair@gmail.com</span></div>
+      <ul class="dmenu">
+        <li><a href="admin-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.2.6.74 1.01 1.36 1.02H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>Store settings</a></li>
+        <li><a href="admin-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Back to console</a></li>
+        <li><a class="is-bad" href="signin.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>Sign out</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="dmain" id="dashmain">
+<!-- 1 · OPS KPIs -->
+    <section class="dsec" data-rv>
+      <div class="kpis">
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>12.4%</span>
+          </div>
+          <div class="kpi-v">&#8377;<span data-count="2846000">0</span></div>
+          <div class="kpi-l">Revenue this month</div>
+          <div class="kpi-foot">September &middot; target &#8377;31,00,000</div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>8.1%</span>
+          </div>
+          <div class="kpi-v"><span data-count="1842">0</span></div>
+          <div class="kpi-l">Orders handled</div>
+          <div class="kpi-foot">Across 3 branches and 2 dark stores</div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic kpi-ic--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+            <span class="ddelta ddelta--down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>2 waiting</span>
+          </div>
+          <div class="kpi-v"><span data-count="7">0</span></div>
+          <div class="kpi-l">Prescriptions to verify</div>
+          <div class="kpi-foot">Oldest has waited 2h 14m</div>
+        </article>
+
+        <article class="kpi kpi--dark">
+          <div class="kpi-top">
+            <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>0.8%</span>
+          </div>
+          <div class="kpi-v"><span data-count="97">0</span>.2%</div>
+          <div class="kpi-l">Same day fill rate</div>
+          <div class="kpi-foot">Industry benchmark is 92%</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2 · REVENUE CHART + FULFILMENT -->
+    <section class="dsec" data-rv>
+      <div class="dgrid dg-auto-lg">
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Revenue</h3>
+              <p>Net of discounts and returns</p>
+            </div>
+            <div class="dseg" data-seg data-chart="rev">
+              <button class="pill is-on" data-range="7">7 days</button>
+              <button class="pill" data-range="30">30 days</button>
+              <button class="pill" data-range="90">Quarter</button>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="chart" data-chart="rev">
+              <i class="chart-g" style="top:0%"><span>&#8377;4L</span></i>
+              <i class="chart-g" style="top:33%"><span>&#8377;3L</span></i>
+              <i class="chart-g" style="top:66%"><span>&#8377;2L</span></i>
+              <div class="chart-b" style="--h:44%" data-h-7="44%" data-h-30="52%" data-h-90="46%"><span class="chart-w"><em>8.2L</em><span></span></span><b>Apr</b></div>
+              <div class="chart-b chart-b--sky" style="--h:56%" data-h-7="56%" data-h-30="60%" data-h-90="54%"><span class="chart-w"><em>11.4L</em><span></span></span><b>May</b></div>
+              <div class="chart-b" style="--h:62%" data-h-7="62%" data-h-30="66%" data-h-90="58%"><span class="chart-w"><em>13.1L</em><span></span></span><b>Jun</b></div>
+              <div class="chart-b chart-b--gold" style="--h:48%" data-h-7="48%" data-h-30="56%" data-h-90="50%"><span class="chart-w"><em>9.6L</em><span></span></span><b>Jul</b></div>
+              <div class="chart-b" style="--h:70%" data-h-7="70%" data-h-30="72%" data-h-90="66%"><span class="chart-w"><em>15.2L</em><span></span></span><b>Aug</b></div>
+              <div class="chart-b chart-b--violet" style="--h:78%" data-h-7="78%" data-h-30="80%" data-h-90="74%"><span class="chart-w"><em>28.5L</em><span></span></span><b>Sep</b></div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <span>Best day <b style="color:var(--ink)">18 Sep &middot; &#8377;3,10,400</b></span>
+            <a class="link-arrow" href="admin-orders.html">All orders
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Fulfilment mix</h3>
+              <p>1,842 orders in September</p>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="dgauge-row">
+              <div class="dgauge">
+                <span class="dring" data-p="61">
+                  <span class="dring-tx"><b>61%</b><small>Delivery</small></span>
+                </span>
+                <span class="dgauge-tx"><b>Same day delivery</b><small>1,124 orders &middot; 4.2 km average</small></span>
+              </div>
+              <div class="dgauge">
+                <span class="dring dring--violet" data-p="27">
+                  <span class="dring-tx"><b>27%</b><small>Pickup</small></span>
+                </span>
+                <span class="dgauge-tx"><b>Counter collection</b><small>497 orders &middot; 6 min average wait</small></span>
+              </div>
+              <div class="dgauge">
+                <span class="dring dring--gold" data-p="12">
+                  <span class="dring-tx"><b>12%</b><small>Dark store</small></span>
+                </span>
+                <span class="dgauge-tx"><b>Late night orders</b><small>221 orders &middot; 10 PM to 6 AM</small></span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <span>Couriers on shift <b style="color:var(--ink)">14</b> &middot; 2 idle at Whitefield</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3 · QUEUE -->
+    <section class="dsec" data-rv>
+      <div class="dgrid dg-2">
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Needs attention</h3>
+              <p>Work that is blocking other orders</p>
+            </div>
+            <span class="sp sp--bad">13 items</span>
+          </div>
+          <div class="panel-bd">
+            <div class="dprog-row">
+              <div class="dprog-ic">
+                <span class="kpi-ic kpi-ic--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg></span>
+                <span class="dprog-ic-tx"><b>Prescriptions awaiting signature</b><small>Oldest 2h 14m &middot; 5 need a pharmacist</small></span>
+                <a class="btn btn--ghost btn--sm" href="admin-prescriptions.html">Review</a>
+              </div>
+              <div class="dprog-ic">
+                <span class="kpi-ic kpi-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg></span>
+                <span class="dprog-ic-tx"><b>SKUs below reorder level</b><small>Insulin glargine has 3 packs left</small></span>
+                <a class="btn btn--ghost btn--sm" href="admin-inventory.html">Reorder</a>
+              </div>
+              <div class="dprog-ic">
+                <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></span>
+                <span class="dprog-ic-tx"><b>Failed deliveries to retry</b><small>3 couriers returned parcels today</small></span>
+                <a class="btn btn--ghost btn--sm" href="admin-orders.html">Retry</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Team on shift</h3>
+              <p>6 people clocked in at Chinna Thirupathi</p>
+            </div>
+            <div class="panel-hd-act">
+              <button class="pill" data-rowact data-msg="Shift roster exported as a PDF.">Export roster</button>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="dlist">
+              <div class="ditem">
+                <span class="ava ava--violet">MN</span>
+                <span class="ditem-tx"><b>Meera Nair</b><small>Store manager &middot; until 7:00 PM</small></span>
+                <span class="sp sp--ok">On floor</span>
+              </div>
+              <div class="ditem">
+                <span class="ava ava--coral">FS</span>
+                <span class="ditem-tx"><b>Fatima Sheikh</b><small>Senior pharmacist &middot; 7 scripts signed</small></span>
+                <span class="sp sp--ok">Counter 1</span>
+              </div>
+              <div class="ditem">
+                <span class="ava ava--sky">RV</span>
+                <span class="ditem-tx"><b>Rahul Verma</b><small>Pharmacist &middot; 2 interactions on hold</small></span>
+                <span class="sp sp--warn">Busy</span>
+              </div>
+              <div class="ditem">
+                <span class="ava ava--gold">PD</span>
+                <span class="ditem-tx"><b>Priya Desai</b><small>Dispensary &middot; 42 items picked</small></span>
+                <span class="sp sp--ok">Dispensary</span>
+              </div>
+              <div class="ditem">
+                <span class="ava">KT</span>
+                <span class="ditem-tx"><b>Karthik T.</b><small>Rider &middot; 9 drops completed</small></span>
+                <span class="sp sp--info">On route</span>
+              </div>
+              <div class="ditem">
+                <span class="ava ava--sm">AL</span>
+                <span class="ditem-tx"><b>Anita L.</b><small>Packing &middot; joining at 4:00 PM</small></span>
+                <span class="sp sp--mute">Due in</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <span>Next shift handover at <b style="color:var(--ink)">6:00 PM</b></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4 · LIVE ORDERS -->
+    <section class="dsec" data-rv>
+      <div class="panel">
+        <div class="panel-hd">
+          <div>
+            <h3>Live orders</h3>
+            <p><b data-rows data-for="adm">0</b> of <b data-total data-for="adm">0</b> orders in the last 24 hours</p>
+          </div>
+          <div class="dfilters" data-tfilter data-for="adm">
+            <button class="pill is-on" data-f="all">All</button>
+            <button class="pill" data-f="New">New</button>
+            <button class="pill" data-f="Packing">Packing</button>
+            <button class="pill" data-f="Out for delivery">On route</button>
+            <button class="pill" data-f="Delivered">Delivered</button>
+          </div>
+          <div class="panel-hd-act">
+            <label class="dsearch dsearch--sm">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.1-4.1"/></svg>
+              <input type="search" data-tsearch data-for="adm" placeholder="Search order, name or phone&hellip;" aria-label="Search live orders">
+            </label>
+          </div>
+        </div>
+        <div class="panel-bd panel-bd--flush">
+          <div class="dt-wrap">
+            <table class="dtable" data-table="adm" data-page-size="5">
+              <thead>
+                <tr>
+                  <th class="is-sortable" data-sort="id">Order<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th>Customer</th>
+                  <th>Branch</th>
+                  <th class="is-sortable" data-sort="value">Value<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th>Status</th>
+                  <th class="right">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-status="New" data-search="mc-50018 rohan shetty 9845012233" data-k-id="50018" data-k-value="2480">
+                  <td data-label="Order"><span class="mono">#MC-50018</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Rohan Shetty</b><small>98450 12233 &middot; 3 items</small></div></td>
+                  <td data-label="Branch"><span class="muted">Chinna Thirupathi</span></td>
+                  <td data-label="Value"><span class="num">&#8377;2,480</span></td>
+                  <td data-label="Status"><span class="sp sp--live">New</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="#MC-50018 released to packing." aria-label="Release to packing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print packing slip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Packing" data-search="mc-50012 deepa menon 9900112244" data-k-id="50012" data-k-value="1260">
+                  <td data-label="Order"><span class="mono">#MC-50012</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Deepa Menon</b><small>99001 12244 &middot; 2 items, 1 Rx</small></div></td>
+                  <td data-label="Branch"><span class="muted">Chinna Thirupathi</span></td>
+                  <td data-label="Value"><span class="num">&#8377;1,260</span></td>
+                  <td data-label="Status"><span class="sp sp--warn">Packing</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Courier Karthik assigned to #MC-50012." aria-label="Assign courier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7Z"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print packing slip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Out for delivery" data-search="mc-50007 imran khan 9880077455" data-k-id="50007" data-k-value="3940">
+                  <td data-label="Order"><span class="mono">#MC-50007</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Imran Khan</b><small>98800 77455 &middot; 7 items</small></div></td>
+                  <td data-label="Branch"><span class="muted">Whitefield</span></td>
+                  <td data-label="Value"><span class="num">&#8377;3,940</span></td>
+                  <td data-label="Status"><span class="sp sp--live">On route</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Tracking link sent to Imran Khan." aria-label="Send tracking"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print invoice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Delivered" data-search="mc-49994 sneha iyer 9740091122" data-k-id="49994" data-k-value="890">
+                  <td data-label="Order"><span class="mono">#MC-49994</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Sneha Iyer</b><small>97400 91122 &middot; 2 items</small></div></td>
+                  <td data-label="Branch"><span class="muted">Chinna Thirupathi</span></td>
+                  <td data-label="Value"><span class="num">&#8377;890</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Delivered</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Invoice emailed to Sneha Iyer." aria-label="Email invoice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print invoice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Delivered" data-search="mc-49981 arjun reddy 9008014477" data-k-id="49981" data-k-value="2160">
+                  <td data-label="Order"><span class="mono">#MC-49981</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Arjun Reddy</b><small>90080 14477 &middot; 4 items</small></div></td>
+                  <td data-label="Branch"><span class="muted">Koramangala</span></td>
+                  <td data-label="Value"><span class="num">&#8377;2,160</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Delivered</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Invoice emailed to Arjun Reddy." aria-label="Email invoice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print invoice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Packing" data-search="mc-49976 farhan ali 9035006611" data-k-id="49976" data-k-value="1520">
+                  <td data-label="Order"><span class="mono">#MC-49976</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Farhan Ali</b><small>90350 06611 &middot; 3 items, 1 Rx</small></div></td>
+                  <td data-label="Branch"><span class="muted">Whitefield</span></td>
+                  <td data-label="Value"><span class="num">&#8377;1,520</span></td>
+                  <td data-label="Status"><span class="sp sp--warn">Packing</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Courier Suresh assigned to #MC-49976." aria-label="Assign courier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7Z"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print packing slip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Delivered" data-search="mc-49960 divya rao 9880409933" data-k-id="49960" data-k-value="640">
+                  <td data-label="Order"><span class="mono">#MC-49960</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Divya Rao</b><small>98804 09933 &middot; 1 item</small></div></td>
+                  <td data-label="Branch"><span class="muted">Chinna Thirupathi</span></td>
+                  <td data-label="Value"><span class="num">&#8377;640</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Delivered</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Invoice emailed to Divya Rao." aria-label="Email invoice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print invoice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="New" data-search="mc-49955 vikram das 9444012233" data-k-id="49955" data-k-value="4310">
+                  <td data-label="Order"><span class="mono">#MC-49955</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Vikram Das</b><small>94440 12233 &middot; 6 items</small></div></td>
+                  <td data-label="Branch"><span class="muted">Koramangala</span></td>
+                  <td data-label="Value"><span class="num">&#8377;4,310</span></td>
+                  <td data-label="Status"><span class="sp sp--live">New</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="#MC-49955 released to packing." aria-label="Release to packing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print packing slip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel-ft">
+          <div class="dpag" data-pag data-for="adm">
+            <span class="dl">Rows per page</span>
+            <div class="dpag-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<button class="back-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="toast-wrap"></div>
+
+<script src="js/script.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer Insights | Stackly Pharmacy</title>
+<meta name="description" content="Understand customer segments, spot churn early and keep every relationship healthy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dash-body">
+
+<a class="skip" href="#dashmain">Skip to content</a>
+<div class="glow"></div>
+<div class="prog"></div>
+
+<aside class="dside">
+  <div class="dside-brand">
+    <a class="logo" href="admin-dashboard.html"><img class="logo-img" src="Assets/logo.webp" alt="Stackly admin console" width="2170" height="725"></a>
+    <button class="dside-x" aria-label="Close navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <nav class="dside-nav" id="dashnav">
+    <span class="dgroup-lbl">Operations</span>
+    <a class="dnav" href="admin-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg><span>Overview</span></a>
+    <a class="dnav" href="admin-orders.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span>Orders</span><em class="dnav-n">18</em></a>
+    <a class="dnav" href="admin-prescriptions.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg><span>Prescriptions</span><em class="dnav-n dnav-n--coral">7</em></a>
+    <a class="dnav" href="admin-inventory.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg><span>Inventory</span><em class="dnav-n">4</em></a>
+    <a class="dnav is-active" href="admin-customers.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg><span>Customers</span></a>
+    <a class="dnav" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>Back to website</span></a>
+  </nav>
+
+  <div class="dside-foot">
+    <div class="dside-card">
+      <span class="ava ava--violet">MN</span>
+      <span class="dn-user-txt"><b>Meera Nair</b><small>Chinna Thirupathi branch</small></span>
+      <a class="dside-out" href="signin.html" aria-label="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+      </a>
+    </div>
+  </div>
+</aside>
+<div class="dscrim"></div>
+
+<div class="dash">
+
+  <header class="dtop">
+    <div class="dtop-in">
+      <button class="icon-btn dtop-burger" data-side-open aria-label="Open navigation" aria-expanded="false" aria-controls="dashnav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <button class="icon-btn dtop-rail" data-rail aria-label="Collapse sidebar" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
+      </button>
+      <div class="dtop-crumb">
+        <h1>Customers</h1>
+        <p>8,420 registered &middot; 1,284 are at risk of churn</p>
+      </div>
+      <div class="dtop-act">
+        <label class="dsearch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.1-4.1"/></svg>
+          <input type="search" placeholder="Search customers, phones or emails&hellip;" aria-label="Search">
+          <kbd>/</kbd>
+        </label>
+        <button class="icon-btn" data-dd="notif" aria-label="Notifications" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.27 21a2 2 0 0 0 3.46 0"/><path d="M3.26 15.33A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.67C19.41 13.87 18 12.3 18 8A6 6 0 0 0 6 8c0 4.3-1.41 5.87-2.74 7.33"/></svg>
+          <span class="badge">4</span>
+        </button>
+        <button class="duser" data-dd="usermenu" aria-label="Your account" aria-expanded="false">
+          <span class="ava ava--violet">MN</span>
+          <span class="duser-tx"><b>Meera</b><small>Store Manager</small></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="ddrop" data-ddpanel="notif">
+      <div class="ddrop-hd"><b>Operations feed</b><span>4 unread</span></div>
+      <a class="dnote" href="admin-prescriptions.html">
+        <span class="dnote-ic--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+        <span style="flex:1"><b>7 prescriptions need review</b><small>Oldest waiting 2h 14m</small></span><time>4m</time>
+      </a>
+      <a class="dnote" href="admin-inventory.html">
+        <span class="dnote-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg></span>
+        <span style="flex:1"><b>4 SKUs below reorder level</b><small>Insulin glargine is critical</small></span><time>26m</time>
+      </a>
+      <a class="dnote" href="admin-orders.html">
+        <span class="dnote-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+        <span style="flex:1"><b>18 orders queued for packing</b><small>5 must ship before 6 PM</small></span><time>1h</time>
+      </a>
+      <a class="dnote" href="admin-dashboard.html">
+        <span class="dnote-ic--violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+        <span style="flex:1"><b>Evening handover at 6:00 PM</b><small>Shift notes from Karthik S.</small></span><time>3h</time>
+      </a>
+      <div class="ddrop-ft"><a href="admin-dashboard.html">Open operations feed<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+
+    <div class="ddrop" data-ddpanel="usermenu">
+      <div class="ddrop-hd"><b>Meera Nair</b><span>meera.nair@gmail.com</span></div>
+      <ul class="dmenu">
+        <li><a href="admin-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.2.6.74 1.01 1.36 1.02H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>Store settings</a></li>
+        <li><a href="admin-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Back to console</a></li>
+        <li><a class="is-bad" href="signin.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>Sign out</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="dmain" id="dashmain">
+<!-- 1 · CUSTOMER KPIs -->
+    <section class="dsec" data-rv>
+      <div class="kpis">
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>9.6% this month</span>
+          </div>
+          <div class="kpi-v"><span data-count="8420">0</span></div>
+          <div class="kpi-l">Registered customers</div>
+          <div class="kpi-foot">412 joined in the last 30 days</div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>2.1%</span>
+          </div>
+          <div class="kpi-v"><span data-count="68">0</span>%</div>
+          <div class="kpi-l">Repeat order rate</div>
+          <div class="kpi-foot">4 or more orders in 12 months</div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic kpi-ic--violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15.1 8.6 22 9.7l-5 4.9 1.2 6.9L12 18.3 5.8 21.5 7 14.6l-5-4.9 6.9-1.1Z"/></svg></span>
+            <span class="ddelta ddelta--flat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>stable</span>
+          </div>
+          <div class="kpi-v">&#8377;<span data-count="1240">0</span></div>
+          <div class="kpi-l">Average lifetime value</div>
+          <div class="kpi-foot">Top decile averages &#8377;9,800</div>
+        </article>
+
+        <article class="kpi kpi--dark">
+          <div class="kpi-top">
+            <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></span>
+            <span class="ddelta ddelta--down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>1 open</span>
+          </div>
+          <div class="kpi-v"><span data-count="23">0</span></div>
+          <div class="kpi-l">Complaints and feedback</div>
+          <div class="kpi-foot">4.6 average rating from 812 reviews</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2 · SEGMENTS + SIGNUPS -->
+    <section class="dsec" data-rv>
+      <div class="dgrid dg-2">
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Customer segments</h3>
+              <p>Grouped by order frequency and spend</p>
+            </div>
+            <a class="link-arrow" href="admin-customers.html#segments">Edit segments
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="panel-bd">
+            <div class="dprog-row">
+              <div class="dprog-ic">
+                <span class="ava ava--violet">VS</span>
+                <span class="dprog-ic-tx"><b>Loyal &middot; VIP</b><small>118 customers &middot; &#8377;1,16,000 average spend &middot; concierge delivery</small><span class="dprog dprog--violet"><i style="--w:14%"></i></span></span>
+                <span class="sp sp--info">1.4%</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="ava">RG</span>
+                <span class="dprog-ic-tx"><b>Regular</b><small>2,146 customers &middot; &#8377;6,200 average spend &middot; monthly refills</small><span class="dprog"><i style="--w:26%"></i></span></span>
+                <span class="sp sp--ok">25%</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="ava ava--sky">NK</span>
+                <span class="dprog-ic-tx"><b>New</b><small>3,910 customers &middot; first order in 90 days &middot; onboarding offer sent</small><span class="dprog dprog--sky"><i style="--w:46%"></i></span></span>
+                <span class="sp sp--info">46%</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="ava ava--gold">DS</span>
+                <span class="dprog-ic-tx"><b>At risk</b><small>1,284 customers &middot; no order for 120 days &middot; win back campaign queued</small><span class="dprog dprog--gold"><i style="--w:15%"></i></span></span>
+                <span class="sp sp--warn">15%</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="ava ava--coral">CP</span>
+                <span class="dprog-ic-tx"><b>Chronic care</b><small>962 customers &middot; 3 or more active prescriptions &middot; monthly sync calls</small><span class="dprog dprog--coral"><i style="--w:11%"></i></span></span>
+                <span class="sp sp--mute">11%</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <span>Segments refresh nightly &middot; last run <b style="color:var(--ink)">3:00 AM</b></span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Signups</h3>
+              <p>New accounts created each week</p>
+            </div>
+            <div class="dseg" data-seg data-chart="sg">
+              <button class="pill is-on" data-range="7">7 days</button>
+              <button class="pill" data-range="30">30 days</button>
+              <button class="pill" data-range="90">Quarter</button>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="chart" data-chart="sg">
+              <i class="chart-g" style="top:0%"><span>160</span></i>
+              <i class="chart-g" style="top:33%"><span>120</span></i>
+              <i class="chart-g" style="top:66%"><span>60</span></i>
+              <div class="chart-b" style="--h:34%" data-h-7="34%" data-h-30="40%" data-h-90="36%"><span class="chart-w"><em>48 new</em><span></span></span><b>W1</b></div>
+              <div class="chart-b chart-b--sky" style="--h:44%" data-h-7="44%" data-h-30="50%" data-h-90="46%"><span class="chart-w"><em>63 new</em><span></span></span><b>W2</b></div>
+              <div class="chart-b" style="--h:58%" data-h-7="58%" data-h-30="64%" data-h-90="56%"><span class="chart-w"><em>84 new</em><span></span></span><b>W3</b></div>
+              <div class="chart-b chart-b--gold" style="--h:70%" data-h-7="70%" data-h-30="74%" data-h-90="66%"><span class="chart-w"><em>101 new</em><span></span></span><b>W4</b></div>
+              <div class="chart-b" style="--h:88%" data-h-7="88%" data-h-30="90%" data-h-90="84%"><span class="chart-w"><em>128 new</em><span></span></span><b>W5</b></div>
+              <div class="chart-b chart-b--violet" style="--h:40%" data-h-7="40%" data-h-30="46%" data-h-90="42%"><span class="chart-w"><em>57 new</em><span></span></span><b>W6</b></div>
+              <div class="chart-b" style="--h:64%" data-h-7="64%" data-h-30="70%" data-h-90="60%"><span class="chart-w"><em>92 new</em><span></span></span><b>W7</b></div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <span>Referral share <b style="color:var(--ink)">28%</b> &middot; App store 44% &middot; Web 28%</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3 · CUSTOMER TABLE -->
+    <section class="dsec" data-rv>
+      <div class="panel">
+        <div class="panel-hd">
+          <div>
+            <h3>Customer directory</h3>
+            <p><b data-rows data-for="cu">0</b> of <b data-total data-for="cu">0</b> customers shown</p>
+          </div>
+          <div class="dfilters" data-tfilter data-for="cu">
+            <button class="pill is-on" data-f="all">All</button>
+            <button class="pill" data-f="VIP">VIP</button>
+            <button class="pill" data-f="Chronic care">Chronic care</button>
+            <button class="pill" data-f="At risk">At risk</button>
+            <button class="pill" data-f="New">New</button>
+          </div>
+          <div class="panel-hd-act">
+            <label class="dsearch dsearch--sm">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.1-4.1"/></svg>
+              <input type="search" data-tsearch data-for="cu" placeholder="Search name, phone or email&hellip;" aria-label="Search customers">
+            </label>
+          </div>
+        </div>
+        <div class="panel-bd panel-bd--flush">
+          <div class="dt-wrap">
+            <table class="dtable" data-table="cu" data-page-size="5">
+              <thead>
+                <tr>
+                  <th class="is-sortable" data-sort="name">Customer<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th class="is-sortable" data-sort="orders">Orders<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th>Last order</th>
+                  <th class="is-sortable" data-sort="value">Lifetime value<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th>Segment</th>
+                  <th class="right">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-status="Chronic care" data-search="ananya rao 9845011222 ananya.rao email" data-k-name="ananya rao" data-k-orders="46" data-k-value="48200">
+                  <td data-label="Customer"><div class="dt-user"><span class="ava ava--violet">AR</span><span class="dt-user-tx"><b>Ananya Rao</b><small>98450 11222 &middot; ananya.rao@gmail.com</small></span></div></td>
+                  <td data-label="Orders"><span class="num">46 orders</span></td>
+                  <td data-label="Last order"><div class="dt-user-tx"><b>2 Sep 2026</b><small>3 items &middot; Chinna Thirupathi</small></div></td>
+                  <td data-label="Lifetime value"><span class="num">&#8377;48,200</span></td>
+                  <td data-label="Segment"><span class="sp sp--info">Chronic care</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Adherence check call scheduled with Ananya Rao." aria-label="Schedule call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L9 10.9a16 16 0 0 0 4.1 4.1l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.92Z"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="Profile summary emailed to Ananya Rao." aria-label="Email profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="VIP" data-search="vikram malhotra 9811223366 vikram.m email" data-k-name="vikram malhotra" data-k-orders="38" data-k-value="71400">
+                  <td data-label="Customer"><div class="dt-user"><span class="ava ava--gold">VM</span><span class="dt-user-tx"><b>Vikram Malhotra</b><small>98112 23366 &middot; vikram.m@gmail.com</small></span></div></td>
+                  <td data-label="Orders"><span class="num">38 orders</span></td>
+                  <td data-label="Last order"><div class="dt-user-tx"><b>27 Sep 2026</b><small>5 items &middot; Whitefield</small></div></td>
+                  <td data-label="Lifetime value"><span class="num">&#8377;71,400</span></td>
+                  <td data-label="Segment"><span class="sp sp--warn">VIP</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Concierge delivery prioritised for Vikram Malhotra." aria-label="Prioritise delivery"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15.1 8.6 22 9.7l-5 4.9 1.2 6.9L12 18.3 5.8 21.5 7 14.6l-5-4.9 6.9-1.1Z"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="Profile summary emailed to Vikram Malhotra." aria-label="Email profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="At risk" data-search="sunita kulkarni 9764112233 sunita.k email" data-k-name="sunita kulkarni" data-k-orders="9" data-k-value="8400">
+                  <td data-label="Customer"><div class="dt-user"><span class="ava ava--coral">SK</span><span class="dt-user-tx"><b>Sunita Kulkarni</b><small>97641 12233 &middot; sunita.k@gmail.com</small></span></div></td>
+                  <td data-label="Orders"><span class="num">9 orders</span></td>
+                  <td data-label="Last order"><div class="dt-user-tx"><b>11 Apr 2026</b><small>2 items &middot; Koramangala</small></div></td>
+                  <td data-label="Lifetime value"><span class="num">&#8377;8,400</span></td>
+                  <td data-label="Segment"><span class="sp sp--bad">At risk</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Win back offer of 15% sent to Sunita Kulkarni." aria-label="Send offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="Sunita Kulkarni assigned to Anita L. for follow up." aria-label="Assign owner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="New" data-search="zoya khan 9011229988 zoya.khan email" data-k-name="zoya khan" data-k-orders="1" data-k-value="640">
+                  <td data-label="Customer"><div class="dt-user"><span class="ava ava--sky">ZK</span><span class="dt-user-tx"><b>Zoya Khan</b><small>90112 29988 &middot; zoya.khan@gmail.com</small></span></div></td>
+                  <td data-label="Orders"><span class="num">1 order</span></td>
+                  <td data-label="Last order"><div class="dt-user-tx"><b>28 Sep 2026</b><small>2 items &middot; Chinna Thirupathi</small></div></td>
+                  <td data-label="Lifetime value"><span class="num">&#8377;640</span></td>
+                  <td data-label="Segment"><span class="sp sp--live">New</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Second order nudge scheduled for Zoya Khan in 3 days." aria-label="Schedule nudge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="Profile summary emailed to Zoya Khan." aria-label="Email profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Chronic care" data-search="gopal menon 9944011335 gopal.menon email" data-k-name="gopal menon" data-k-orders="52" data-k-value="62400">
+                  <td data-label="Customer"><div class="dt-user"><span class="ava ava--violet">GM</span><span class="dt-user-tx"><b>Gopal Menon</b><small>99440 11335 &middot; gopal.menon@gmail.com</small></span></div></td>
+                  <td data-label="Orders"><span class="num">52 orders</span></td>
+                  <td data-label="Last order"><div class="dt-user-tx"><b>26 Sep 2026</b><small>4 items &middot; Chinna Thirupathi</small></div></td>
+                  <td data-label="Lifetime value"><span class="num">&#8377;62,400</span></td>
+                  <td data-label="Segment"><span class="sp sp--info">Chronic care</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Adherence check call scheduled with Gopal Menon." aria-label="Schedule call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L9 10.9a16 16 0 0 0 4.1 4.1l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.92Z"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="Profile summary emailed to Gopal Menon." aria-label="Email profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="New" data-search="rahul shetty 9844017744 rahul.s email" data-k-name="rahul shetty" data-k-orders="1" data-k-value="2480">
+                  <td data-label="Customer"><div class="dt-user"><span class="ava ava--sky">RS</span><span class="dt-user-tx"><b>Rahul Shetty</b><small>98440 17744 &middot; rahul.s@gmail.com</small></span></div></td>
+                  <td data-label="Orders"><span class="num">1 order</span></td>
+                  <td data-label="Last order"><div class="dt-user-tx"><b>29 Sep 2026</b><small>3 items &middot; Chinna Thirupathi</small></div></td>
+                  <td data-label="Lifetime value"><span class="num">&#8377;2,480</span></td>
+                  <td data-label="Segment"><span class="sp sp--live">New</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Second order nudge scheduled for Rahul Shetty in 3 days." aria-label="Schedule nudge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="Profile summary emailed to Rahul Shetty." aria-label="Email profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="At risk" data-search="pooja bhatt 9819015566 pooja.b email" data-k-name="pooja bhatt" data-k-orders="12" data-k-value="14200">
+                  <td data-label="Customer"><div class="dt-user"><span class="ava ava--coral">PB</span><span class="dt-user-tx"><b>Pooja Bhatt</b><small>98190 15566 &middot; pooja.b@gmail.com</small></span></div></td>
+                  <td data-label="Orders"><span class="num">12 orders</span></td>
+                  <td data-label="Last order"><div class="dt-user-tx"><b>28 Mar 2026</b><small>4 items &middot; Whitefield</small></div></td>
+                  <td data-label="Lifetime value"><span class="num">&#8377;14,200</span></td>
+                  <td data-label="Segment"><span class="sp sp--bad">At risk</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Win back offer of 15% sent to Pooja Bhatt." aria-label="Send offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="Pooja Bhatt assigned to Anita L. for follow up." aria-label="Assign owner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="VIP" data-search="latha reddy 9000012211 latha.reddy email" data-k-name="latha reddy" data-k-orders="41" data-k-value="68900">
+                  <td data-label="Customer"><div class="dt-user"><span class="ava ava--gold">LR</span><span class="dt-user-tx"><b>Latha Reddy</b><small>90000 12211 &middot; latha.reddy@gmail.com</small></span></div></td>
+                  <td data-label="Orders"><span class="num">41 orders</span></td>
+                  <td data-label="Last order"><div class="dt-user-tx"><b>29 Sep 2026</b><small>6 items &middot; Koramangala</small></div></td>
+                  <td data-label="Lifetime value"><span class="num">&#8377;68,900</span></td>
+                  <td data-label="Segment"><span class="sp sp--warn">VIP</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Concierge delivery prioritised for Latha Reddy." aria-label="Prioritise delivery"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15.1 8.6 22 9.7l-5 4.9 1.2 6.9L12 18.3 5.8 21.5 7 14.6l-5-4.9 6.9-1.1Z"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="Profile summary emailed to Latha Reddy." aria-label="Email profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></button>
+                  </div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel-ft">
+          <div class="dpag" data-pag data-for="cu">
+            <span class="dl">Rows per page</span>
+            <div class="dpag-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · TOP CUSTOMERS + FEEDBACK -->
+    <section class="dsec" data-rv>
+      <div class="dgrid dg-2">
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Top customers this month</h3>
+              <p>Ranked by spend in September</p>
+            </div>
+            <div class="panel-hd-act">
+              <button class="pill" data-rowact data-msg="Top customer list exported as a spreadsheet.">Export</button>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="dlist">
+              <div class="ditem">
+                <span class="ava ava--gold">VM</span>
+                <span class="ditem-tx"><b>Vikram Malhotra</b><small>7 orders &middot; highest single order &#8377;9,240</small></span>
+                <span class="num">&#8377;41,860</span>
+              </div>
+              <div class="ditem">
+                <span class="ava ava--violet">GM</span>
+                <span class="ditem-tx"><b>Gopal Menon</b><small>6 orders &middot; monthly sync since Jan 2024</small></span>
+                <span class="num">&#8377;38,200</span>
+              </div>
+              <div class="ditem">
+                <span class="ava ava--violet">AR</span>
+                <span class="ditem-tx"><b>Ananya Rao</b><small>5 orders &middot; 3 active prescriptions</small></span>
+                <span class="num">&#8377;32,410</span>
+              </div>
+              <div class="ditem">
+                <span class="ava ava--gold">LR</span>
+                <span class="ditem-tx"><b>Latha Reddy</b><small>8 orders &middot; prefers counter collection</small></span>
+                <span class="num">&#8377;29,760</span>
+              </div>
+              <div class="ditem">
+                <span class="ava ava--sky">NK</span>
+                <span class="ditem-tx"><b>Nikil Kapoor</b><small>4 orders &middot; referred by Gopal Menon</small></span>
+                <span class="num">&#8377;24,180</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <span>Top 5 customers contribute <b style="color:var(--ink)">9.2%</b> of monthly revenue</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Feedback and complaints</h3>
+              <p>1 complaint is still open</p>
+            </div>
+            <span class="sp sp--warn">4.6 rating</span>
+          </div>
+          <div class="panel-bd">
+            <ul class="feed">
+              <li class="feed-i">
+                <span class="feed-dot feed-dot--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></span>
+                <span class="feed-tx"><b>Open: courier left the parcel in the rain</b><small>Sunita Kulkarni &middot; refund of &#8377;1,240 requested &middot; 3 hours ago</small></span>
+                <button class="btn btn--primary btn--sm" data-rowact data-msg="Refund of &#8377;1,240 approved for Sunita Kulkarni.">Refund</button>
+              </li>
+              <li class="feed-i">
+                <span class="feed-dot feed-dot--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15.1 8.6 22 9.7l-5 4.9 1.2 6.9L12 18.3 5.8 21.5 7 14.6l-5-4.9 6.9-1.1Z"/></svg></span>
+                <span class="feed-tx"><b>5 star: delivered an hour early</b><small>Zoya Khan &middot; mentioned the rider by name &middot; 1:52 PM</small></span>
+              </li>
+              <li class="feed-i">
+                <span class="feed-dot feed-dot--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="feed-tx"><b>5 star: pharmacist explained the new dosage</b><small>Gopal Menon &middot; called to thank the team &middot; 12:18 PM</small></span>
+              </li>
+              <li class="feed-i">
+                <span class="feed-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4 12h16"/></svg></span>
+                <span class="feed-tx"><b>3 star: website would not apply the coupon</b><small>Rahul Shetty &middot; coupon re-issued as a credit &middot; 11:04 AM</small></span>
+              </li>
+            </ul>
+          </div>
+          <div class="panel-ft">
+            <button class="btn btn--ghost btn--sm" data-rowact data-msg="All 812 reviews exported.">
+              Export reviews
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</div>
+
+<button class="back-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="toast-wrap"></div>
+
+<script src="js/script.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

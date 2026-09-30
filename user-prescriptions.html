@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Prescriptions | Stackly Pharmacy</title>
+<meta name="description" content="Track every prescription on file, request refills in one tap, follow pharmacist review and pick up or get medicines delivered.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dash-body">
+
+<a class="skip" href="#dashmain">Skip to content</a>
+<div class="glow"></div>
+<div class="prog"></div>
+
+<aside class="dside">
+  <div class="dside-brand">
+    <a class="logo" href="user-dashboard.html"><img class="logo-img" src="Assets/logo.webp" alt="Stackly admin console" width="2170" height="725"></a>
+    <button class="dside-x" aria-label="Close navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <nav class="dside-nav" id="dashnav">
+    <span class="dgroup-lbl">Dashboard</span>
+    <a class="dnav" href="user-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg><span>Overview</span></a>
+    <a class="dnav" href="user-orders.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span>Orders</span><em class="dnav-n">2</em></a>
+    <a class="dnav is-active" href="user-prescriptions.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg><span>Prescriptions</span><em class="dnav-n dnav-n--coral">1</em></a>
+    <a class="dnav" href="user-health.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg><span>Health Records</span></a>
+    <a class="dnav" href="user-account.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Account</span></a>
+    <a class="dnav" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>Back to website</span></a>
+  </nav>
+
+  <div class="dside-foot">
+    <div class="dside-card">
+      <span class="ava ava--coral">AR</span>
+      <span class="dn-user-txt"><b>Ananya Rao</b><small>Member since 2021</small></span>
+      <a class="dside-out" href="signin.html" aria-label="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+      </a>
+    </div>
+  </div>
+</aside>
+<div class="dscrim"></div>
+
+<div class="dash">
+
+  <header class="dtop">
+    <div class="dtop-in">
+      <button class="icon-btn dtop-burger" data-side-open aria-label="Open navigation" aria-expanded="false" aria-controls="dashnav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <button class="icon-btn dtop-rail" data-rail aria-label="Collapse sidebar" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
+      </button>
+      <div class="dtop-crumb">
+        <h1>Prescriptions</h1>
+        <p>5 active &middot; 1 refill due &middot; reviewed 12 Sep 2026</p>
+      </div>
+      <div class="dtop-act">
+        <label class="dsearch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.1-4.1"/></svg>
+          <input type="search" placeholder="Search medicines&hellip;" aria-label="Search">
+          <kbd>/</kbd>
+        </label>
+        <button class="icon-btn" data-dd="notif" aria-label="Notifications" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.27 21a2 2 0 0 0 3.46 0"/><path d="M3.26 15.33A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.67C19.41 13.87 18 12.3 18 8A6 6 0 0 0 6 8c0 4.3-1.41 5.87-2.74 7.33"/></svg>
+          <span class="badge">4</span>
+        </button>
+        <button class="duser" data-dd="usermenu" aria-label="Your account" aria-expanded="false">
+          <span class="ava ava--coral">AR</span>
+          <span class="duser-tx"><b>Ananya</b><small>Member</small></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="ddrop" data-ddpanel="notif">
+      <div class="ddrop-hd"><b>Notifications</b><span>4 unread</span></div>
+      <a class="dnote" href="user-orders.html">
+        <span class="dnote-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+        <span style="flex:1"><b>#MC-48120 is 3 stops away</b><small>Rider Karthik &middot; expected by 4:30 PM</small></span><time>12m</time>
+      </a>
+      <a class="dnote" href="user-orders.html">
+        <span class="dnote-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+        <span style="flex:1"><b>#MC-48105 packed and ready for pickup</b><small>Chinna Thirupathi branch &middot; hold until 6 Oct</small></span><time>3h</time>
+      </a>
+      <a class="dnote" href="user-prescriptions.html">
+        <span class="dnote-ic--violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+        <span style="flex:1"><b>Refill due in 4 days</b><small>Metformin 500mg &middot; 30 tablets left</small></span><time>1d</time>
+      </a>
+      <a class="dnote" href="user-health.html">
+        <span class="dnote-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+        <span style="flex:1"><b>Lab report is ready</b><small>Lipid profile &middot; 22 Sep 2026</small></span><time>2d</time>
+      </a>
+      <div class="ddrop-ft"><a href="user-account.html">Notification settings<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+
+    <div class="ddrop" data-ddpanel="usermenu">
+      <div class="ddrop-hd"><b>Ananya Rao</b><span>ananya.rao@gmail.com</span></div>
+      <ul class="dmenu">
+        <li><a href="user-account.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile &amp; addresses</a></li>
+        <li><a href="user-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Back to overview</a></li>
+        <li><a class="is-bad" href="signin.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>Sign out</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="dmain" id="dashmain">
+<!-- 1 · RX KPIs -->
+    <section class="dsec" data-rv>
+      <div class="kpis">
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+            <span class="ddelta ddelta--flat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>steady</span>
+          </div>
+          <div class="kpi-v"><span data-count="5">0</span></div>
+          <div class="kpi-l">Active medications</div>
+          <div class="kpi-foot">Across 3 prescribers</div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic kpi-ic--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg></span>
+            <span class="ddelta ddelta--down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>needs action</span>
+          </div>
+          <div class="kpi-v"><span data-count="1">0</span></div>
+          <div class="kpi-l">Refills due</div>
+          <div class="kpi-foot">Metformin runs out in 4 days</div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>2 approved</span>
+          </div>
+          <div class="kpi-v"><span data-count="12">0</span></div>
+          <div class="kpi-l">Refills remaining</div>
+          <div class="kpi-foot">Valid until 08 Mar 2027</div>
+        </article>
+
+        <article class="kpi kpi--dark">
+          <div class="kpi-top">
+            <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>4%</span>
+          </div>
+          <div class="kpi-v"><span data-count="94">0</span>%</div>
+          <div class="kpi-l">Dose adherence</div>
+          <div class="kpi-foot">Last 30 days &middot; logged from the app</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2 · ACTIVE MEDICATIONS + REFILL TRACKER -->
+    <section class="dsec" data-rv>
+      <div class="dgrid dg-2">
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Active medications</h3>
+              <p>5 on your current list &middot; reviewed 12 Sep 2026</p>
+            </div>
+            <div class="panel-hd-act">
+              <button class="pill" data-rowact data-msg="Refill request sent to Dr. Iyer.">Request all refills</button>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="dlist">
+              <div class="ditem">
+                <span class="kpi-ic kpi-ic--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+                <span class="ditem-tx">
+                  <b>Metformin 500mg &middot; 30 tablets</b>
+                  <small>Twice daily with meals &middot; Dr. Meera Iyer</small>
+                  <span class="dprog dprog--coral"><i style="--w:13%"></i></span>
+                </span>
+                <span class="sp sp--bad">4 days</span>
+              </div>
+              <div class="ditem">
+                <span class="kpi-ic kpi-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+                <span class="ditem-tx">
+                  <b>Atorvastatin 10mg &middot; 60 capsules</b>
+                  <small>Once at night &middot; Dr. Meera Iyer &middot; auto-refill on</small>
+                  <span class="dprog dprog--gold"><i style="--w:37%"></i></span>
+                </span>
+                <span class="sp sp--warn">11 days</span>
+              </div>
+              <div class="ditem">
+                <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+                <span class="ditem-tx">
+                  <b>Levothyroxine 50mcg &middot; 30 tablets</b>
+                  <small>Empty stomach, 6:30 AM &middot; Dr. Suresh Kulkarni</small>
+                  <span class="dprog"><i style="--w:58%"></i></span>
+                </span>
+                <span class="sp sp--info">18 days</span>
+              </div>
+              <div class="ditem">
+                <span class="kpi-ic kpi-ic--violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+                <span class="ditem-tx">
+                  <b>Amlodipine 5mg &middot; 30 tablets</b>
+                  <small>Once daily &middot; Dr. Meera Iyer</small>
+                  <span class="dprog dprog--violet"><i style="--w:72%"></i></span>
+                </span>
+                <span class="sp sp--ok">23 days</span>
+              </div>
+              <div class="ditem">
+                <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+                <span class="ditem-tx">
+                  <b>Vitamin D3 1000 IU &middot; 60 softgels</b>
+                  <small>Once weekly &middot; OTC supplement</small>
+                  <span class="dprog"><i style="--w:81%"></i></span>
+                </span>
+                <span class="sp sp--ok">26 days</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <button class="btn btn--ghost btn--sm" data-rowact data-msg="Full medication list opened.">
+              View all 5 medications
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Next refill</h3>
+              <p>Metformin 500mg &middot; in 4 days</p>
+            </div>
+            <span class="sp sp--bad">Due</span>
+          </div>
+          <div class="panel-bd">
+            <div class="dsteps">
+              <div class="dstep">
+                <span class="dstep-n">1</span>
+                <div>
+                  <b>Refill requested</b>
+                  <small>Sent to Dr. Iyer &middot; 29 Sep, 9:12 AM</small>
+                </div>
+              </div>
+              <div class="dstep">
+                <span class="dstep-n">2</span>
+                <div>
+                  <b>Pharmacist review</b>
+                  <small>Safety check and interaction scan &middot; in progress</small>
+                </div>
+              </div>
+              <div class="dstep">
+                <span class="dstep-n">3</span>
+                <div>
+                  <b>Pharmacist signature</b>
+                  <small>Usually within 4 working hours</small>
+                </div>
+              </div>
+              <div class="dstep">
+                <span class="dstep-n">4</span>
+                <div>
+                  <b>Dispense and pack</b>
+                  <small>Chinna Thirupathi branch &middot; same day</small>
+                </div>
+              </div>
+              <div class="dstep">
+                <span class="dstep-n">5</span>
+                <div>
+                  <b>Delivery or pickup</b>
+                  <small>Choose a slot once it is packed</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <button class="btn btn--primary btn--sm" data-rowact data-msg="We called Dr. Iyer's clinic to confirm.">Speed this up</button>
+            <button class="btn btn--ghost btn--sm" data-rowact data-msg="Refill request cancelled.">Cancel request</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3 · PRESCRIPTION HISTORY TABLE -->
+    <section class="dsec" data-rv>
+      <div class="panel">
+        <div class="panel-hd">
+          <div>
+            <h3>Prescription history</h3>
+            <p><b data-rows data-for="rx">0</b> of <b data-total data-for="rx">0</b> prescriptions on file</p>
+          </div>
+          <div class="dfilters" data-tfilter data-for="rx">
+            <button class="pill is-on" data-f="all">All</button>
+            <button class="pill" data-f="Active">Active</button>
+            <button class="pill" data-f="Refill due">Refill due</button>
+            <button class="pill" data-f="Expired">Expired</button>
+          </div>
+          <div class="panel-hd-act">
+            <label class="dsearch dsearch--sm">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.1-4.1"/></svg>
+              <input type="search" data-tsearch data-for="rx" placeholder="Search medicines&hellip;" aria-label="Search prescriptions">
+            </label>
+          </div>
+        </div>
+        <div class="panel-bd panel-bd--flush">
+          <div class="dt-wrap">
+            <table class="dtable" data-table="rx" data-page-size="5">
+              <thead>
+                <tr>
+                  <th class="is-sortable" data-sort="med">Medicine<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th class="is-sortable" data-sort="doc">Prescribed by<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th class="is-sortable" data-sort="date">Issued<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th class="is-sortable" data-sort="refills">Refills<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th>Status</th>
+                  <th class="right">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-status="Refill due" data-search="metformin 500mg meera iyer" data-k-med="Metformin 500mg" data-k-doc="Dr. Meera Iyer" data-k-date="2026-09-12" data-k-refills="2">
+                  <td data-label="Medicine"><div class="dt-user-tx"><b>Metformin 500mg</b><small>30 tablets &middot; twice daily</small></div></td>
+                  <td data-label="Prescribed by"><span class="dt-user-tx"><b>Dr. Meera Iyer</b><small>MBBS, MD &middot; GP</small></span></td>
+                  <td data-label="Issued"><span class="muted">12 Sep 2026</span></td>
+                  <td data-label="Refills"><span class="num">2 left</span></td>
+                  <td data-label="Status"><span class="sp sp--bad">Refill due</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Refill sent to Dr. Iyer." aria-label="Request refill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Active" data-search="atorvastatin 10mg meera iyer" data-k-med="Atorvastatin 10mg" data-k-doc="Dr. Meera Iyer" data-k-date="2026-09-12" data-k-refills="4">
+                  <td data-label="Medicine"><div class="dt-user-tx"><b>Atorvastatin 10mg</b><small>60 capsules &middot; at night</small></div></td>
+                  <td data-label="Prescribed by"><div class="dt-user-tx"><b>Dr. Meera Iyer</b><small>MBBS, MD &middot; GP</small></div></td>
+                  <td data-label="Issued"><span class="muted">12 Sep 2026</span></td>
+                  <td data-label="Refills"><span class="num">4 left</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Active</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Atorvastatin refill scheduled for 27 Sep." aria-label="Refill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Active" data-search="levothyroxine 50mcg suresh kulkarni" data-k-med="Levothyroxine 50mcg" data-k-doc="Dr. Suresh Kulkarni" data-k-date="2026-08-24" data-k-refills="1">
+                  <td data-label="Medicine"><div class="dt-user-tx"><b>Levothyroxine 50mcg</b><small>30 tablets &middot; empty stomach</small></div></td>
+                  <td data-label="Prescribed by"><div class="dt-user-tx"><b>Dr. Suresh Kulkarni</b><small>MD &middot; Endocrinology</small></div></td>
+                  <td data-label="Issued"><span class="muted">24 Aug 2026</span></td>
+                  <td data-label="Refills"><span class="num">1 left</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Active</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Levothyroxine refill scheduled for 20 Oct." aria-label="Refill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Active" data-search="amlodipine 5mg meera iyer" data-k-med="Amlodipine 5mg" data-k-doc="Dr. Meera Iyer" data-k-date="2026-07-30" data-k-refills="3">
+                  <td data-label="Medicine"><div class="dt-user-tx"><b>Amlodipine 5mg</b><small>30 tablets &middot; once daily</small></div></td>
+                  <td data-label="Prescribed by"><div class="dt-user-tx"><b>Dr. Meera Iyer</b><small>MBBS, MD &middot; GP</small></div></td>
+                  <td data-label="Issued"><span class="muted">30 Jul 2026</span></td>
+                  <td data-label="Refills"><span class="num">3 left</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Active</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Amlodipine refill scheduled for 25 Dec." aria-label="Refill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Active" data-search="pantoprazole 40mg suresh kulkarni" data-k-med="Pantoprazole 40mg" data-k-doc="Dr. Suresh Kulkarni" data-k-date="2026-06-18" data-k-refills="2">
+                  <td data-label="Medicine"><div class="dt-user-tx"><b>Pantoprazole 40mg</b><small>28 tablets &middot; before breakfast</small></div></td>
+                  <td data-label="Prescribed by"><div class="dt-user-tx"><b>Dr. Suresh Kulkarni</b><small>MD &middot; Endocrinology</small></div></td>
+                  <td data-label="Issued"><span class="muted">18 Jun 2026</span></td>
+                  <td data-label="Refills"><span class="num">2 left</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Active</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Pantoprazole refill scheduled for 14 Nov." aria-label="Refill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Active" data-search="vitamin d3 1000iu meera iyer" data-k-med="Vitamin D3 1000 IU" data-k-doc="Dr. Meera Iyer" data-k-date="2026-06-02" data-k-refills="5">
+                  <td data-label="Medicine"><div class="dt-user-tx"><b>Vitamin D3 1000 IU</b><small>60 softgels &middot; once weekly</small></div></td>
+                  <td data-label="Prescribed by"><div class="dt-user-tx"><b>Dr. Meera Iyer</b><small>MBBS, MD &middot; GP</small></div></td>
+                  <td data-label="Issued"><span class="muted">02 Jun 2026</span></td>
+                  <td data-label="Refills"><span class="num">5 left</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Active</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Vitamin D3 refill scheduled for 28 Oct." aria-label="Refill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Expired" data-search="azithromycin 500mg meera iyer" data-k-med="Azithromycin 500mg" data-k-doc="Dr. Meera Iyer" data-k-date="2026-03-14" data-k-refills="0">
+                  <td data-label="Medicine"><div class="dt-user-tx"><b>Azithromycin 500mg</b><small>3 tablets &middot; 3 day course</small></div></td>
+                  <td data-label="Prescribed by"><div class="dt-user-tx"><b>Dr. Meera Iyer</b><small>MBBS, MD &middot; GP</small></div></td>
+                  <td data-label="Issued"><span class="muted">14 Mar 2026</span></td>
+                  <td data-label="Refills"><span class="muted">none</span></td>
+                  <td data-label="Status"><span class="sp sp--mute">Expired</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act dt-act--coral" data-rowact data-msg="A new prescription from Dr. Iyer is needed." aria-label="Renew"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Expired" data-search="paracetamol 650mg meera iyer" data-k-med="Paracetamol 650mg" data-k-doc="Dr. Meera Iyer" data-k-date="2025-11-08" data-k-refills="0">
+                  <td data-label="Medicine"><div class="dt-user-tx"><b>Paracetamol 650mg</b><small>15 tablets &middot; as needed</small></div></td>
+                  <td data-label="Prescribed by"><div class="dt-user-tx"><b>Dr. Meera Iyer</b><small>MBBS, MD &middot; GP</small></div></td>
+                  <td data-label="Issued"><span class="muted">08 Nov 2025</span></td>
+                  <td data-label="Refills"><span class="muted">none</span></td>
+                  <td data-label="Status"><span class="sp sp--mute">Expired</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act dt-act--coral" data-rowact data-msg="Paracetamol is available over the counter." aria-label="Buy again"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print prescription"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel-ft">
+          <div class="dpag" data-pag data-for="rx">
+            <span class="dl">Rows per page</span>
+            <div class="dpag-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · SAFETY + PRESCRIBERS -->
+    <section class="dsec" data-rv>
+      <div class="dgrid dg-2">
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Safety review</h3>
+              <p>Checked against every medicine on your list</p>
+            </div>
+            <span class="sp sp--ok">No issues</span>
+          </div>
+          <div class="panel-bd">
+            <div class="dalerts">
+              <div class="dalert">
+                <span class="kpi-ic kpi-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>
+                <div>
+                  <b>Take Levothyroxine on an empty stomach</b>
+                  <small>Calcium and iron reduce absorption. Space them by at least 4 hours. Dr. Kulkarni was notified.</small>
+                </div>
+              </div>
+              <div class="dalert">
+                <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>
+                <div>
+                  <b>Statin and grapefruit</b>
+                  <small>Avoid grapefruit juice on Atorvastatin days to prevent higher statin levels.</small>
+                </div>
+              </div>
+              <div class="dalert">
+                <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <div>
+                  <b>Allergy on file: Penicillin</b>
+                  <small>Rash recorded 2019. Every order is screened against it before dispensing.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <button class="btn btn--ghost btn--sm" data-rowact data-msg="Pharmacist chat opened with Ms. Fatima Sheikh.">
+              Ask the pharmacist
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Your prescribers</h3>
+              <p>3 doctors connected to this account</p>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="dlist">
+              <div class="ditem">
+                <span class="ava ava--violet">MI</span>
+                <span class="ditem-tx">
+                  <b>Dr. Meera Iyer</b>
+                  <small>MBBS, MD &middot; General physician &middot; 4 of your medicines</small>
+                </span>
+                <span class="sp sp--ok">Reachable</span>
+              </div>
+              <div class="ditem">
+                <span class="ava ava--sky">SK</span>
+                <span class="ditem-tx">
+                  <b>Dr. Suresh Kulkarni</b>
+                  <small>MD &middot; Endocrinology &middot; 1 of your medicines</small>
+                </span>
+                <span class="sp sp--ok">Reachable</span>
+              </div>
+              <div class="ditem">
+                <span class="ava ava--gold">RP</span>
+                <span class="ditem-tx">
+                  <b>Dr. Ritu Prasad</b>
+                  <small>MBBS &middot; Locum cover &middot; covered for Dr. Iyer in August</small>
+                </span>
+                <span class="sp sp--mute">Inactive</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <button class="btn btn--ghost btn--sm" data-rowact data-msg="A request to add a new prescriber was sent.">Add a prescriber</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</div>
+
+<button class="back-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="toast-wrap"></div>
+
+<script src="js/script.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

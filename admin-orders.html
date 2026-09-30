@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order Fulfilment | Stackly Pharmacy</title>
+<meta name="description" content="Work the live order queue, dispatch couriers and clear delivery exceptions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dash-body">
+
+<a class="skip" href="#dashmain">Skip to content</a>
+<div class="glow"></div>
+<div class="prog"></div>
+
+<aside class="dside">
+  <div class="dside-brand">
+    <a class="logo" href="admin-dashboard.html"><img class="logo-img" src="Assets/logo.webp" alt="Stackly admin console" width="2170" height="725"></a>
+    <button class="dside-x" aria-label="Close navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <nav class="dside-nav" id="dashnav">
+    <span class="dgroup-lbl">Operations</span>
+    <a class="dnav" href="admin-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg><span>Overview</span></a>
+    <a class="dnav is-active" href="admin-orders.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span>Orders</span><em class="dnav-n">18</em></a>
+    <a class="dnav" href="admin-prescriptions.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg><span>Prescriptions</span><em class="dnav-n dnav-n--coral">7</em></a>
+    <a class="dnav" href="admin-inventory.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg><span>Inventory</span><em class="dnav-n">4</em></a>
+    <a class="dnav" href="admin-customers.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg><span>Customers</span></a>
+    <a class="dnav" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>Back to website</span></a>
+  </nav>
+
+  <div class="dside-foot">
+    <div class="dside-card">
+      <span class="ava ava--violet">MN</span>
+      <span class="dn-user-txt"><b>Meera Nair</b><small>Chinna Thirupathi branch</small></span>
+      <a class="dside-out" href="signin.html" aria-label="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+      </a>
+    </div>
+  </div>
+</aside>
+<div class="dscrim"></div>
+
+<div class="dash">
+
+  <header class="dtop">
+    <div class="dtop-in">
+      <button class="icon-btn dtop-burger" data-side-open aria-label="Open navigation" aria-expanded="false" aria-controls="dashnav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <button class="icon-btn dtop-rail" data-rail aria-label="Collapse sidebar" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
+      </button>
+      <div class="dtop-crumb">
+        <h1>Orders</h1>
+        <p>18 open &middot; 5 must ship before 6 PM</p>
+      </div>
+      <div class="dtop-act">
+        <label class="dsearch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.1-4.1"/></svg>
+          <input type="search" placeholder="Search orders, customers or phone&hellip;" aria-label="Search">
+          <kbd>/</kbd>
+        </label>
+        <button class="icon-btn" data-dd="notif" aria-label="Notifications" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.27 21a2 2 0 0 0 3.46 0"/><path d="M3.26 15.33A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.67C19.41 13.87 18 12.3 18 8A6 6 0 0 0 6 8c0 4.3-1.41 5.87-2.74 7.33"/></svg>
+          <span class="badge">4</span>
+        </button>
+        <button class="duser" data-dd="usermenu" aria-label="Your account" aria-expanded="false">
+          <span class="ava ava--violet">MN</span>
+          <span class="duser-tx"><b>Meera</b><small>Store Manager</small></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="ddrop" data-ddpanel="notif">
+      <div class="ddrop-hd"><b>Operations feed</b><span>4 unread</span></div>
+      <a class="dnote" href="admin-prescriptions.html">
+        <span class="dnote-ic--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+        <span style="flex:1"><b>7 prescriptions need review</b><small>Oldest waiting 2h 14m</small></span><time>4m</time>
+      </a>
+      <a class="dnote" href="admin-inventory.html">
+        <span class="dnote-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg></span>
+        <span style="flex:1"><b>4 SKUs below reorder level</b><small>Insulin glargine is critical</small></span><time>26m</time>
+      </a>
+      <a class="dnote" href="admin-orders.html">
+        <span class="dnote-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+        <span style="flex:1"><b>18 orders queued for packing</b><small>5 must ship before 6 PM</small></span><time>1h</time>
+      </a>
+      <a class="dnote" href="admin-dashboard.html">
+        <span class="dnote-ic--violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+        <span style="flex:1"><b>Evening handover at 6:00 PM</b><small>Shift notes from Karthik S.</small></span><time>3h</time>
+      </a>
+      <div class="ddrop-ft"><a href="admin-dashboard.html">Open operations feed<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+
+    <div class="ddrop" data-ddpanel="usermenu">
+      <div class="ddrop-hd"><b>Meera Nair</b><span>meera.nair@gmail.com</span></div>
+      <ul class="dmenu">
+        <li><a href="admin-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.2.6.74 1.01 1.36 1.02H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>Store settings</a></li>
+        <li><a href="admin-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Back to console</a></li>
+        <li><a class="is-bad" href="signin.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>Sign out</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="dmain" id="dashmain">
+<!-- 1 · QUEUE KPIs -->
+    <section class="dsec" data-rv>
+      <div class="kpis">
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>6 today</span>
+          </div>
+          <div class="kpi-v"><span data-count="18">0</span></div>
+          <div class="kpi-l">Open orders</div>
+          <div class="kpi-foot">5 must ship before 6 PM</div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="ddelta ddelta--flat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>on target</span>
+          </div>
+          <div class="kpi-v"><span data-count="11">0</span></div>
+          <div class="kpi-l">Awaiting picking</div>
+          <div class="kpi-foot">Average 6 minutes in queue</div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic kpi-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7Z"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>2 in transit</span>
+          </div>
+          <div class="kpi-v"><span data-count="14">0</span></div>
+          <div class="kpi-l">Riders on shift</div>
+          <div class="kpi-foot">2 idle, 3 due back by 5 PM</div>
+        </article>
+
+        <article class="kpi kpi--dark">
+          <div class="kpi-top">
+            <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span>
+            <span class="ddelta ddelta--down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>1 retry left</span>
+          </div>
+          <div class="kpi-v"><span data-count="3">0</span></div>
+          <div class="kpi-l">Failed deliveries</div>
+          <div class="kpi-foot">Customer unreachable</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2 · ORDER QUEUE -->
+    <section class="dsec" data-rv>
+      <div class="panel">
+        <div class="panel-hd">
+          <div>
+            <h3>Order queue</h3>
+            <p><b data-rows data-for="ord">0</b> of <b data-total data-for="ord">0</b> orders need action</p>
+          </div>
+          <div class="dfilters" data-tfilter data-for="ord">
+            <button class="pill is-on" data-f="all">All</button>
+            <button class="pill" data-f="New">New</button>
+            <button class="pill" data-f="Picking">Picking</button>
+            <button class="pill" data-f="Packed">Packed</button>
+            <button class="pill" data-f="On hold">On hold</button>
+          </div>
+          <div class="panel-hd-act">
+            <label class="dsearch dsearch--sm">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.1-4.1"/></svg>
+              <input type="search" data-tsearch data-for="ord" placeholder="Search order, name or phone&hellip;" aria-label="Search order queue">
+            </label>
+          </div>
+        </div>
+        <div class="panel-bd panel-bd--flush">
+          <div class="dt-wrap">
+            <table class="dtable" data-table="ord" data-page-size="5">
+              <thead>
+                <tr>
+                  <th class="is-sortable" data-sort="id">Order<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th>Customer</th>
+                  <th>Items</th>
+                  <th class="is-sortable" data-sort="age">Waiting<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th>Status</th>
+                  <th class="right">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-status="New" data-search="mc-50018 rohan shetty 9845012233 cold flu" data-k-id="50018" data-k-age="22">
+                  <td data-label="Order"><span class="mono">#MC-50018</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Rohan Shetty</b><small>98450 12233 &middot; Chinna Thirupathi</small></div></td>
+                  <td data-label="Items"><span class="num">3 items</span></td>
+                  <td data-label="Waiting"><span class="num">22 min</span></td>
+                  <td data-label="Status"><span class="sp sp--live">New</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="#MC-50018 released to picking." aria-label="Release to picking"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print picking list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Picking" data-search="mc-50012 deepa menon 9900112244 prescription" data-k-id="50012" data-k-age="14">
+                  <td data-label="Order"><span class="mono">#MC-50012</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Deepa Menon</b><small>99001 12244 &middot; Chinna Thirupathi</small></div></td>
+                  <td data-label="Items"><span class="num">2 items &middot; 1 Rx</span></td>
+                  <td data-label="Waiting"><span class="num">14 min</span></td>
+                  <td data-label="Status"><span class="sp sp--warn">Picking</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="#MC-50012 marked as picked." aria-label="Mark picked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print picking list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Packed" data-search="mc-50007 imran khan 9880077455" data-k-id="50007" data-k-age="8">
+                  <td data-label="Order"><span class="mono">#MC-50007</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Imran Khan</b><small>98800 77455 &middot; Whitefield</small></div></td>
+                  <td data-label="Items"><span class="num">7 items</span></td>
+                  <td data-label="Waiting"><span class="num">8 min</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Packed</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Courier Karthik assigned to #MC-50007." aria-label="Assign courier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7Z"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="On hold" data-search="mc-50003 neha gupta 9812234477 allergy" data-k-id="50003" data-k-age="61">
+                  <td data-label="Order"><span class="mono">#MC-50003</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Neha Gupta</b><small>98122 34477 &middot; Chinna Thirupathi</small></div></td>
+                  <td data-label="Items"><span class="num">4 items</span></td>
+                  <td data-label="Waiting"><span class="num">61 min</span></td>
+                  <td data-label="Status"><span class="sp sp--bad">On hold</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Pharmacist Fatima called about the allergy flag." aria-label="Call pharmacist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L9 10.9a16 16 0 0 0 4.1 4.1l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.92Z"/></svg></button>
+                    <button class="dt-act dt-act--coral" data-rowact data-msg="#MC-50003 cancelled and the customer notified." aria-label="Cancel order"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Picking" data-search="mc-49998 samir qureshi 9844011299" data-k-id="49998" data-k-age="17">
+                  <td data-label="Order"><span class="mono">#MC-49998</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Samir Qureshi</b><small>98440 11299 &middot; Koramangala</small></div></td>
+                  <td data-label="Items"><span class="num">5 items</span></td>
+                  <td data-label="Waiting"><span class="num">17 min</span></td>
+                  <td data-label="Status"><span class="sp sp--warn">Picking</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="#MC-49998 marked as picked." aria-label="Mark picked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print picking list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="New" data-search="mc-49991 kavya nair 9538001122" data-k-id="49991" data-k-age="6">
+                  <td data-label="Order"><span class="mono">#MC-49991</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Kavya Nair</b><small>95380 01122 &middot; Chinna Thirupathi</small></div></td>
+                  <td data-label="Items"><span class="num">2 items</span></td>
+                  <td data-label="Waiting"><span class="num">6 min</span></td>
+                  <td data-label="Status"><span class="sp sp--live">New</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="#MC-49991 released to picking." aria-label="Release to picking"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print picking list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="On hold" data-search="mc-49987 aman chopra 9870012244 out of stock" data-k-id="49987" data-k-age="43">
+                  <td data-label="Order"><span class="mono">#MC-49987</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Aman Chopra</b><small>98700 12244 &middot; Whitefield</small></div></td>
+                  <td data-label="Items"><span class="num">3 items</span></td>
+                  <td data-label="Waiting"><span class="num">43 min</span></td>
+                  <td data-label="Status"><span class="sp sp--bad">On hold</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Insulin glargine reserved at Whitefield for #MC-49987." aria-label="Reserve stock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg></button>
+                    <button class="dt-act dt-act--coral" data-rowact data-msg="#MC-49987 cancelled and the customer notified." aria-label="Cancel order"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Packed" data-search="mc-49980 rekha pillai 9744011199" data-k-id="49980" data-k-age="11">
+                  <td data-label="Order"><span class="mono">#MC-49980</span></td>
+                  <td data-label="Customer"><div class="dt-user-tx"><b>Rekha Pillai</b><small>97440 11199 &middot; Koramangala</small></div></td>
+                  <td data-label="Items"><span class="num">4 items</span></td>
+                  <td data-label="Waiting"><span class="num">11 min</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Packed</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-rowact data-msg="Courier Suresh assigned to #MC-49980." aria-label="Assign courier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7Z"/></svg></button>
+                    <button class="dt-act" data-print aria-label="Print label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></button>
+                  </div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel-ft">
+          <div class="dpag" data-pag data-for="ord">
+            <span class="dl">Rows per page</span>
+            <div class="dpag-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · DISPATCH + DELIVERY HEALTH -->
+    <section class="dsec" data-rv>
+      <div class="dgrid dg-2">
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Dispatch board</h3>
+              <p>Couriers and their current load</p>
+            </div>
+            <div class="panel-hd-act">
+              <button class="pill" data-rowact data-msg="Two idle riders re-dispatched to Chinna Thirupathi.">Auto assign</button>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="dprog-row">
+              <div class="dprog-ic">
+                <span class="ava ava--sm">KT</span>
+                <span class="dprog-ic-tx"><b>Karthik T.</b><small>6 drops done &middot; 3 remaining &middot; Whitefield</small><span class="dprog"><i style="--w:66%"></i></span></span>
+                <span class="sp sp--info">On route</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="ava ava--sm">SP</span>
+                <span class="dprog-ic-tx"><b>Suresh P.</b><small>4 drops done &middot; 4 remaining &middot; Koramangala</small><span class="dprog dprog--sky"><i style="--w:50%"></i></span></span>
+                <span class="sp sp--info">On route</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="ava ava--sm">IM</span>
+                <span class="dprog-ic-tx"><b>Irfan M.</b><small>8 drops done &middot; 1 remaining &middot; Chinna Thirupathi</small><span class="dprog dprog--violet"><i style="--w:88%"></i></span></span>
+                <span class="sp sp--warn">Finishing</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="ava ava--sm">RJ</span>
+                <span class="dprog-ic-tx"><b>Rakesh J.</b><small>Idle for 22 minutes &middot; available now</small><span class="dprog dprog--coral"><i style="--w:8%"></i></span></span>
+                <span class="sp sp--mute">Idle</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <span>Average drop time today <b style="color:var(--ink)">24 minutes</b> &middot; target 30</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Delivery performance</h3>
+              <p>Last 30 days across all branches</p>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="dgauge-row">
+              <div class="dgauge">
+                <span class="dring" data-p="96">
+                  <span class="dring-tx"><b>96%</b><small>On time</small></span>
+                </span>
+                <span class="dgauge-tx"><b>Delivered in the window</b><small>1,766 of 1,842 orders</small></span>
+              </div>
+              <div class="dgauge">
+                <span class="dring dring--gold" data-p="4">
+                  <span class="dring-tx"><b>4%</b><small>Failed</small></span>
+                </span>
+                <span class="dgauge-tx"><b>Failed attempts</b><small>76 orders &middot; 1.6 retries on average</small></span>
+              </div>
+              <div class="dgauge">
+                <span class="dring dring--violet" data-p="8">
+                  <span class="dring-tx"><b>8%</b><small>Returns</small></span>
+                </span>
+                <span class="dgauge-tx"><b>Customer cancellations</b><small>147 orders &middot; mostly out of stock</small></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4 · EXCEPTIONS -->
+    <section class="dsec" data-rv>
+      <div class="dgrid dg-2">
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Returns and refunds</h3>
+              <p>3 awaiting a decision</p>
+            </div>
+            <span class="sp sp--warn">3 open</span>
+          </div>
+          <div class="panel-bd">
+            <div class="dlist">
+              <div class="ditem">
+                <span class="kpi-ic kpi-ic--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span>
+                <span class="ditem-tx">
+                  <b>#MC-49880 &middot; Cold syrup leaked in transit</b>
+                  <small>Refund &#8377;165 &middot; raised 2 hours ago by Nikhil J.</small>
+                </span>
+                <button class="btn btn--primary btn--sm" data-rowact data-msg="Refund of &#8377;165 approved for #MC-49880.">Approve</button>
+              </div>
+              <div class="ditem">
+                <span class="kpi-ic kpi-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></span>
+                <span class="ditem-tx">
+                  <b>#MC-49744 &middot; Wrong strength dispensed</b>
+                  <small>Customer sent photos &middot; raised yesterday by Asha Menon</small>
+                </span>
+                <button class="btn btn--primary btn--sm" data-rowact data-msg="Replacement dispatched for #MC-49744.">Replace</button>
+              </div>
+              <div class="ditem">
+                <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7-7 7 7"/></svg></span>
+                <span class="ditem-tx">
+                  <b>#MC-49610 &middot; Order arrived after the return window</b>
+                  <small>Requested by Vinay Rao &middot; 2 days over the 15 day window</small>
+                </span>
+                <button class="btn btn--ghost btn--sm" data-rowact data-msg="Return request declined. Policy window is 15 days.">Decline</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Exception log</h3>
+              <p>Everything that went wrong today</p>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <ul class="feed">
+              <li class="feed-i">
+                <span class="feed-dot feed-dot--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg></span>
+                <span class="feed-tx"><b>#MC-50003 held for an allergy check</b><small>Amoxicillin against a recorded penicillin allergy &middot; 12:22 PM</small></span>
+              </li>
+              <li class="feed-i">
+                <span class="feed-dot feed-dot--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/></svg></span>
+                <span class="feed-tx"><b>#MC-49987 held, insulin out of stock</b><small>Substitute offered and awaiting customer reply &middot; 11:48 AM</small></span>
+              </li>
+              <li class="feed-i">
+                <span class="feed-dot feed-dot--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7Z"/></svg></span>
+                <span class="feed-tx"><b>Delivery failed at Whitefield, 3 attempts</b><small>#MC-49844 &middot; customer asked to retry tomorrow &middot; 11:05 AM</small></span>
+              </li>
+              <li class="feed-i">
+                <span class="feed-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="feed-tx"><b>Batch quarantined, 24 packs</b><small>Amoxicillin expiry 08/2026 &middot; pulled from both shelves &middot; 10:31 AM</small></span>
+              </li>
+            </ul>
+          </div>
+          <div class="panel-ft">
+            <button class="btn btn--ghost btn--sm" data-rowact data-msg="Today's exception log has been exported.">
+              Export the log
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</div>
+
+<button class="back-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="toast-wrap"></div>
+
+<script src="js/script.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

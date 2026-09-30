@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Health Records | Stackly Pharmacy</title>
+<meta name="description" content="Blood pressure trends, heart rate and weight charts, verified lab reports, immunisation records and a full care timeline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dash-body">
+
+<a class="skip" href="#dashmain">Skip to content</a>
+<div class="glow"></div>
+<div class="prog"></div>
+
+<aside class="dside">
+  <div class="dside-brand">
+    <a class="logo" href="user-dashboard.html"><img class="logo-img" src="Assets/logo.webp" alt="Stackly admin console" width="2170" height="725"></a>
+    <button class="dside-x" aria-label="Close navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <nav class="dside-nav" id="dashnav">
+    <span class="dgroup-lbl">Dashboard</span>
+    <a class="dnav" href="user-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg><span>Overview</span></a>
+    <a class="dnav" href="user-orders.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span>Orders</span><em class="dnav-n">2</em></a>
+    <a class="dnav" href="user-prescriptions.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg><span>Prescriptions</span><em class="dnav-n dnav-n--coral">1</em></a>
+    <a class="dnav is-active" href="user-health.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg><span>Health Records</span></a>
+    <a class="dnav" href="user-account.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Account</span></a>
+    <a class="dnav" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>Back to website</span></a>
+  </nav>
+
+  <div class="dside-foot">
+    <div class="dside-card">
+      <span class="ava ava--coral">AR</span>
+      <span class="dn-user-txt"><b>Ananya Rao</b><small>Member since 2021</small></span>
+      <a class="dside-out" href="signin.html" aria-label="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+      </a>
+    </div>
+  </div>
+</aside>
+<div class="dscrim"></div>
+
+<div class="dash">
+
+  <header class="dtop">
+    <div class="dtop-in">
+      <button class="icon-btn dtop-burger" data-side-open aria-label="Open navigation" aria-expanded="false" aria-controls="dashnav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <button class="icon-btn dtop-rail" data-rail aria-label="Collapse sidebar" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
+      </button>
+      <div class="dtop-crumb">
+        <h1>Health Records</h1>
+        <p>Last sync 26 Sep 2026 &middot; 14 readings this month</p>
+      </div>
+      <div class="dtop-act">
+        <label class="dsearch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.1-4.1"/></svg>
+          <input type="search" placeholder="Search health records&hellip;" aria-label="Search">
+          <kbd>/</kbd>
+        </label>
+        <button class="icon-btn" data-dd="notif" aria-label="Notifications" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.27 21a2 2 0 0 0 3.46 0"/><path d="M3.26 15.33A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.67C19.41 13.87 18 12.3 18 8A6 6 0 0 0 6 8c0 4.3-1.41 5.87-2.74 7.33"/></svg>
+          <span class="badge">4</span>
+        </button>
+        <button class="duser" data-dd="usermenu" aria-label="Your account" aria-expanded="false">
+          <span class="ava ava--coral">AR</span>
+          <span class="duser-tx"><b>Ananya</b><small>Member</small></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="ddrop" data-ddpanel="notif">
+      <div class="ddrop-hd"><b>Notifications</b><span>4 unread</span></div>
+      <a class="dnote" href="user-orders.html">
+        <span class="dnote-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+        <span style="flex:1"><b>#MC-48120 is 3 stops away</b><small>Rider Karthik &middot; expected by 4:30 PM</small></span><time>12m</time>
+      </a>
+      <a class="dnote" href="user-orders.html">
+        <span class="dnote-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+        <span style="flex:1"><b>#MC-48105 packed and ready for pickup</b><small>Chinna Thirupathi branch &middot; hold until 6 Oct</small></span><time>3h</time>
+      </a>
+      <a class="dnote" href="user-prescriptions.html">
+        <span class="dnote-ic--violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+        <span style="flex:1"><b>Refill due in 4 days</b><small>Metformin 500mg &middot; 30 tablets left</small></span><time>1d</time>
+      </a>
+      <a class="dnote" href="user-health.html">
+        <span class="dnote-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+        <span style="flex:1"><b>Lab report is ready</b><small>Lipid profile &middot; 22 Sep 2026</small></span><time>2d</time>
+      </a>
+      <div class="ddrop-ft"><a href="user-account.html">Notification settings<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+
+    <div class="ddrop" data-ddpanel="usermenu">
+      <div class="ddrop-hd"><b>Ananya Rao</b><span>ananya.rao@gmail.com</span></div>
+      <ul class="dmenu">
+        <li><a href="user-account.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile &amp; addresses</a></li>
+        <li><a href="user-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Back to overview</a></li>
+        <li><a class="is-bad" href="signin.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>Sign out</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="dmain" id="dashmain">
+<!-- 1 · VITAL KPIs -->
+    <section class="dsec" data-rv>
+      <div class="kpis">
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>4 mmHg</span>
+          </div>
+          <div class="kpi-v"><span data-count="118">0</span>/<span data-count="76">0</span></div>
+          <div class="kpi-l">Blood pressure</div>
+          <div class="kpi-foot">Within range &middot; logged 26 Sep</div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic kpi-ic--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></span>
+            <span class="ddelta ddelta--down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>3 bpm</span>
+          </div>
+          <div class="kpi-v"><span data-count="68">0</span></div>
+          <div class="kpi-l">Resting heart rate</div>
+          <div class="kpi-foot">Faster than your 30 day average</div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>1.4 kg</span>
+          </div>
+          <div class="kpi-v"><span data-count="64">0</span>.2</div>
+          <div class="kpi-l">Weight</div>
+          <div class="kpi-foot">Goal 62 kg &middot; 8 weeks to go</div>
+        </article>
+
+        <article class="kpi kpi--dark">
+          <div class="kpi-top">
+            <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>0.2</span>
+          </div>
+          <div class="kpi-v"><span data-count="6">0</span>.1</div>
+          <div class="kpi-l">HbA1c</div>
+          <div class="kpi-foot">Pre-diabetic range &middot; retest in Jan</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2 · BLOOD PRESSURE TREND + SCORES -->
+    <section class="dsec" data-rv>
+      <div class="dgrid dg-auto-lg">
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Systolic blood pressure</h3>
+              <p>Average per month &middot; target below 130</p>
+            </div>
+            <div class="dseg" data-seg data-chart="bp">
+              <button class="pill is-on" data-range="7">7 days</button>
+              <button class="pill" data-range="30">30 days</button>
+              <button class="pill" data-range="90">3 months</button>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="chart" data-chart="bp">
+              <i class="chart-g" style="top:0%"><span>140</span></i>
+              <i class="chart-g" style="top:33%"><span>120</span></i>
+              <i class="chart-g" style="top:66%"><span>100</span></i>
+              <div class="chart-b" style="--h:44%" data-h-7="44%" data-h-30="52%" data-h-90="58%"><span class="chart-w"><em>126</em><span></span></span><b>May</b></div>
+              <div class="chart-b chart-b--sky" style="--h:38%" data-h-7="38%" data-h-30="46%" data-h-90="52%"><span class="chart-w"><em>118</em><span></span></span><b>Jun</b></div>
+              <div class="chart-b" style="--h:41%" data-h-7="41%" data-h-30="44%" data-h-90="49%"><span class="chart-w"><em>122</em><span></span></span><b>Jul</b></div>
+              <div class="chart-b chart-b--gold" style="--h:34%" data-h-7="34%" data-h-30="38%" data-h-90="44%"><span class="chart-w"><em>114</em><span></span></span><b>Aug</b></div>
+              <div class="chart-b" style="--h:37%" data-h-7="37%" data-h-30="40%" data-h-90="42%"><span class="chart-w"><em>118</em><span></span></span><b>Sep</b></div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <span>Seven day average <b style="color:var(--ink)">118/76</b> &middot; readings from your cuff</span>
+            <button class="btn btn--ghost btn--sm" data-rowact data-msg="A new reading has been logged: 118/76.">Log a reading</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Health scores</h3>
+              <p>Updated 22 Sep 2026</p>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="dgauge-row">
+              <div class="dgauge">
+                <span class="dring" data-p="82">
+                  <span class="dring-tx"><b>82</b><small>Heart</small></span>
+                </span>
+                <span class="dgauge-tx"><b>Cardio fitness</b><small>Good &middot; VO2 42 ml/kg/min</small></span>
+              </div>
+              <div class="dgauge">
+                <span class="dring dring--violet" data-p="74">
+                  <span class="dring-tx"><b>74</b><small>Metabolic</small></span>
+                </span>
+                <span class="dgauge-tx"><b>Blood sugar</b><small>Watch &middot; HbA1c 6.1</small></span>
+              </div>
+              <div class="dgauge">
+                <span class="dring dring--gold" data-p="91">
+                  <span class="dring-tx"><b>91</b><small>Activity</small></span>
+                </span>
+                <span class="dgauge-tx"><b>Movement</b><small>Excellent &middot; 7,400 steps a day</small></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3 · LAB REPORTS -->
+    <section class="dsec" data-rv>
+      <div class="panel">
+        <div class="panel-hd">
+          <div>
+            <h3>Lab reports</h3>
+            <p><b data-rows data-for="lab">0</b> of <b data-total data-for="lab">0</b> reports from Stackly Diagnostics</p>
+          </div>
+          <div class="dfilters" data-tfilter data-for="lab">
+            <button class="pill is-on" data-f="all">All</button>
+            <button class="pill" data-f="Normal">Normal</button>
+            <button class="pill" data-f="Watch">Watch</button>
+            <button class="pill" data-f="Critical">Critical</button>
+          </div>
+          <div class="panel-hd-act">
+            <label class="dsearch dsearch--sm">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.1-4.1"/></svg>
+              <input type="search" data-tsearch data-for="lab" placeholder="Search tests&hellip;" aria-label="Search reports">
+            </label>
+          </div>
+        </div>
+        <div class="panel-bd panel-bd--flush">
+          <div class="dt-wrap">
+            <table class="dtable" data-table="lab" data-page-size="5">
+              <thead>
+                <tr>
+                  <th class="is-sortable" data-sort="test">Test<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th class="is-sortable" data-sort="result">Result<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th>Range</th>
+                  <th class="is-sortable" data-sort="date">Date<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></th>
+                  <th>Status</th>
+                  <th class="right">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-status="Watch" data-search="lipid profile cholesterol ldl hdl triglycerides" data-k-test="Lipid profile" data-k-result="4.9" data-k-date="2026-09-22">
+                  <td data-label="Test"><div class="dt-user-tx"><b>Lipid profile</b><small>4 parameters &middot; fasting</small></div></td>
+                  <td data-label="Result"><span class="num">LDL 4.9 mmol/L</span></td>
+                  <td data-label="Range"><span class="muted">Below 3.4</span></td>
+                  <td data-label="Date"><span class="muted">22 Sep 2026</span></td>
+                  <td data-label="Status"><span class="sp sp--warn">Watch</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-print aria-label="Download report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="A 15 minute call with a doctor has been booked." aria-label="Discuss with a doctor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Watch" data-search="hba1c glycated haemoglobin blood sugar" data-k-test="HbA1c" data-k-result="6.1" data-k-date="2026-09-22">
+                  <td data-label="Test"><div class="dt-user-tx"><b>HbA1c</b><small>Glycated haemoglobin</small></div></td>
+                  <td data-label="Result"><span class="num">6.1 %</span></td>
+                  <td data-label="Range"><span class="muted">Below 5.7</span></td>
+                  <td data-label="Date"><span class="muted">22 Sep 2026</span></td>
+                  <td data-label="Status"><span class="sp sp--warn">Watch</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-print aria-label="Download report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="A 15 minute call with a doctor has been booked." aria-label="Discuss with a doctor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Normal" data-search="complete blood count cbc haemoglobin wbc" data-k-test="Complete blood count" data-k-result="13.4" data-k-date="2026-09-22">
+                  <td data-label="Test"><div class="dt-user-tx"><b>Complete blood count</b><small>12 parameters</small></div></td>
+                  <td data-label="Result"><span class="num">Hb 13.4 g/dL</span></td>
+                  <td data-label="Range"><span class="muted">12.0 to 15.5</span></td>
+                  <td data-label="Date"><span class="muted">22 Sep 2026</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Normal</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-print aria-label="Download report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="Report shared with Dr. Meera Iyer." aria-label="Share report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" x2="15.4" y1="10.5" y2="6.5"/><line x1="8.6" x2="15.4" y1="13.5" y2="17.5"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Normal" data-search="kidney function creatinine urea egfr" data-k-test="Kidney function" data-k-result="0.9" data-k-date="2026-09-22">
+                  <td data-label="Test"><div class="dt-user-tx"><b>Kidney function</b><small>Creatinine, urea, eGFR</small></div></td>
+                  <td data-label="Result"><span class="num">eGFR 92 mL/min</span></td>
+                  <td data-label="Range"><span class="muted">Above 60</span></td>
+                  <td data-label="Date"><span class="muted">22 Sep 2026</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Normal</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-print aria-label="Download report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="Report shared with Dr. Suresh Kulkarni." aria-label="Share report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" x2="15.4" y1="10.5" y2="6.5"/><line x1="8.6" x2="15.4" y1="13.5" y2="17.5"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Critical" data-search="vitamin d 25 hydroxy vitamin d3 deficiency" data-k-test="Vitamin D" data-k-result="14" data-k-date="2026-06-11">
+                  <td data-label="Test"><div class="dt-user-tx"><b>Vitamin D (25 OH)</b><small>Bone and immunity marker</small></div></td>
+                  <td data-label="Result"><span class="num">14 ng/mL</span></td>
+                  <td data-label="Range"><span class="muted">Above 30</span></td>
+                  <td data-label="Date"><span class="muted">11 Jun 2026</span></td>
+                  <td data-label="Status"><span class="sp sp--bad">Critical</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-print aria-label="Download report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="Vitamin D3 course added to your plan." aria-label="Start treatment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M12 18v-6M9 15h6"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Normal" data-search="thyroid tsh t3 t4 levothyroxine" data-k-test="Thyroid profile" data-k-result="2.1" data-k-date="2026-05-19">
+                  <td data-label="Test"><div class="dt-user-tx"><b>Thyroid profile</b><small>TSH, T3, T4</small></div></td>
+                  <td data-label="Result"><span class="num">TSH 2.1 mIU/L</span></td>
+                  <td data-label="Range"><span class="muted">0.4 to 4.0</span></td>
+                  <td data-label="Date"><span class="muted">19 May 2026</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Normal</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-print aria-label="Download report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="Report shared with Dr. Suresh Kulkarni." aria-label="Share report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" x2="15.4" y1="10.5" y2="6.5"/><line x1="8.6" x2="15.4" y1="13.5" y2="17.5"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Normal" data-search="liver function lft sgpt bilirubin" data-k-test="Liver function" data-k-result="26" data-k-date="2026-05-19">
+                  <td data-label="Test"><div class="dt-user-tx"><b>Liver function</b><small>SGPT, bilirubin, proteins</small></div></td>
+                  <td data-label="Result"><span class="num">SGPT 26 U/L</span></td>
+                  <td data-label="Range"><span class="muted">Below 40</span></td>
+                  <td data-label="Date"><span class="muted">19 May 2026</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Normal</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-print aria-label="Download report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="Report shared with Dr. Meera Iyer." aria-label="Share report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" x2="15.4" y1="10.5" y2="6.5"/><line x1="8.6" x2="15.4" y1="13.5" y2="17.5"/></svg></button>
+                  </div></td>
+                </tr>
+                <tr data-status="Normal" data-search="blood pressure check vitals nurse" data-k-test="Vitals check" data-k-result="118" data-k-date="2026-04-08">
+                  <td data-label="Test"><div class="dt-user-tx"><b>Vitals check</b><small>Nurse visit, Chinna Thirupathi</small></div></td>
+                  <td data-label="Result"><span class="num">118/76 mmHg</span></td>
+                  <td data-label="Range"><span class="muted">Below 130/85</span></td>
+                  <td data-label="Date"><span class="muted">08 Apr 2026</span></td>
+                  <td data-label="Status"><span class="sp sp--ok">Normal</span></td>
+                  <td data-label="" class="right"><div class="dt-acts">
+                    <button class="dt-act" data-print aria-label="Download report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></button>
+                    <button class="dt-act" data-rowact data-msg="A nurse visit has been booked for 14 Oct." aria-label="Book a review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg></button>
+                  </div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel-ft">
+          <div class="dpag" data-pag data-for="lab">
+            <span class="dl">Rows per page</span>
+            <div class="dpag-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · IMMUNISATIONS + CARE TIMELINE -->
+    <section class="dsec" data-rv>
+      <div class="dgrid dg-2">
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Immunisation record</h3>
+              <p>Verified against the national register</p>
+            </div>
+            <span class="sp sp--info">Due 1</span>
+          </div>
+          <div class="panel-bd">
+            <div class="dprog-row">
+              <div class="dprog-ic">
+                <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="dprog-ic-tx"><b>TdAP booster</b><small>Given 14 Mar 2023 &middot; valid to 2033</small></span>
+                <span class="sp sp--ok">Complete</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="dprog-ic-tx"><b>Influenza</b><small>Given 02 Oct 2026 &middot; repeat yearly</small></span>
+                <span class="sp sp--ok">Current</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="kpi-ic kpi-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+                <span class="dprog-ic-tx"><b>Hepatitis B booster</b><small>Last dose 2019 &middot; due now</small><span class="dprog dprog--gold"><i style="--w:22%"></i></span></span>
+                <span class="sp sp--warn">Due</span>
+              </div>
+              <div class="dprog-ic">
+                <span class="kpi-ic kpi-ic--violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="dprog-ic-tx"><b>COVID-19</b><small>Given 22 Nov 2025 &middot; 4 doses recorded</small></span>
+                <span class="sp sp--ok">Current</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <button class="btn btn--primary btn--sm" data-rowact data-msg="Hepatitis B booster booked at Chinna Thirupathi on 09 Oct.">Book the booster</button>
+            <button class="btn btn--ghost btn--sm" data-print aria-label="Download certificate">Download certificate</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Care timeline</h3>
+              <p>Everything that happened in the last 90 days</p>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <ul class="feed">
+              <li class="feed-i">
+                <span class="feed-dot feed-dot--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg></span>
+                <span class="feed-tx"><b>Lipid profile flagged for review</b><small>LDL 4.9 mmol/L &middot; Dr. Iyer called you the same day</small></span>
+              </li>
+              <li class="feed-i">
+                <span class="feed-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/><circle cx="12" cy="12" r="10"/></svg></span>
+                <span class="feed-tx"><b>New readings synced from your cuff</b><small>14 blood pressure logs in September</small></span>
+              </li>
+              <li class="feed-i">
+                <span class="feed-dot feed-dot--violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg></span>
+                <span class="feed-tx"><b>Atorvastatin strength revised to 20mg</b><small>New prescription from 12 Oct &middot; collect from Chinna Thirupathi</small></span>
+              </li>
+              <li class="feed-i">
+                <span class="feed-dot feed-dot--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="feed-tx"><b>Influenza vaccination recorded</b><small>Administered at Chinna Thirupathi &middot; certificate issued</small></span>
+              </li>
+              <li class="feed-i">
+                <span class="feed-dot feed-dot--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg></span>
+                <span class="feed-tx"><b>Vitamin D found low at 14 ng/mL</b><small>Course started 12 Jun &middot; retest booked for January</small></span>
+              </li>
+            </ul>
+          </div>
+          <div class="panel-ft">
+            <button class="btn btn--ghost btn--sm" data-rowact data-msg="Your full health history PDF is being prepared.">
+              Download full history
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</div>
+
+<button class="back-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="toast-wrap"></div>
+
+<script src="js/script.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

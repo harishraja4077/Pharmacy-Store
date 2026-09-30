@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create an Account | Stackly Pharmacy</title>
+<meta name="description" content="Create a Stackly Pharmacy account to upload prescriptions, get refill reminders, track deliveries and receive a free adherence report.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-body">
+<main class="auth-wrap">
+
+<div class="auth-form-side">
+  <div class="auth-form-in">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:38px">
+      <a class="logo" href="index.html"><img class="logo-img" src="Assets/logo.webp" alt="Stackly Pharmacy" width="2170" height="725"></a>
+      <a class="link-arrow" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> Back to site</a>
+    </div>
+
+    <span class="eyebrow">Get started</span>
+    <h1 style="font-size:clamp(1.8rem,4vw,2.4rem);margin:12px 0 10px">Create your account</h1>
+    <p style="color:var(--muted);margin-bottom:30px">Takes about a minute. Your first order gets
+      &#8377;150 off above &#8377;599, and refill reminders are switched on by default.</p>
+
+    <form novalidate data-validate="Account created. Setting up your dashboard." data-goto="user-dashboard.html">
+      <div class="role-pick">
+        <input type="radio" name="role" id="su-role-user" value="user" checked
+          data-goto="user-dashboard.html" data-label="Create my account" data-msg="Account created. Setting up your dashboard."
+          data-note="For patients ordering medicines for themselves or their family.">
+        <label for="su-role-user">
+          <span class="role-pick-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+          <span class="role-pick-tx"><b>User</b><small>Patient account</small></span>
+        </label>
+
+        <input type="radio" name="role" id="su-role-admin" value="admin"
+          data-goto="admin-dashboard.html" data-label="Request staff access" data-msg="Request sent. Your store manager approves staff access."
+          data-note="For pharmacists, technicians and store managers. Access is approved by your branch manager.">
+        <label for="su-role-admin">
+          <span class="role-pick-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></span>
+          <span class="role-pick-tx"><b>Admin</b><small>Pharmacy staff access</small></span>
+        </label>
+      </div>
+      <p class="role-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span data-role-note>For patients ordering medicines for themselves or their family.</span></p>
+
+      <div class="frow">
+        <div class="field">
+          <label for="su-first">First name <span class="req">*</span></label>
+          <input class="inp" id="su-first" name="first" type="text" placeholder="As on your ID" required>
+        </div>
+        <div class="field">
+          <label for="su-last">Last name <span class="req">*</span></label>
+          <input class="inp" id="su-last" name="last" type="text" placeholder="Surname" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="su-phone">Phone <span class="req">*</span></label>
+        <input class="inp" id="su-phone" name="phone" type="tel" placeholder="+91 " required>
+        <p class="err">Phone number is required</p>
+      </div>
+      <div class="field">
+        <label for="su-email">Email <span class="req">*</span></label>
+        <input class="inp" id="su-email" name="email" type="email" placeholder="you@gmail.com" autocomplete="email" required>
+        <p class="err">Enter a valid Gmail address ending with @gmail.com</p>
+      </div>
+      <div class="field">
+        <label for="su-pass">Create a password <span class="req">*</span></label>
+        <input class="inp" id="su-pass" name="password" type="password" placeholder="Minimum 8 characters" required>
+        <p class="err">Password is required</p>
+        <small style="color:var(--muted);font-size:.78rem">At least one number and one symbol.</small>
+      </div>
+      <div class="field">
+        <label for="su-pin">Delivery pin code</label>
+        <input class="inp" id="su-pin" name="pin" type="text" inputmode="numeric" placeholder="636008" maxlength="6">
+      </div>
+      <label class="chk" style="margin-bottom:14px">
+        <input type="checkbox" name="terms" required>
+        <span>I have read and accept the terms of service and the privacy policy.</span>
+        <span class="err" style="flex:0 0 100%">Please accept the terms to continue</span>
+      </label>
+      <label class="chk" style="margin-bottom:22px">
+        <input type="checkbox" name="reminders" checked>
+        <span>Send me refill reminders and a weekly pharmacist note. No product promotions.</span>
+      </label>
+      <button class="btn btn--primary" type="submit" style="width:100%"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span data-role-btn>Create my account</span></button>
+      <p class="form-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg><span>Your records are encrypted and shared only with the pharmacist filling your prescription.</span></p>
+    </form>
+
+    <p style="text-align:center;margin:26px 0 0;color:var(--muted);font-size:.94rem">
+      Already registered? <a href="signin.html" style="color:var(--brand);font-weight:600">Sign in instead</a></p>
+  </div>
+</div>
+
+<aside class="auth-art"><img width="1500" height="843" src="Assets/auth-bg.webp" alt="Stackly storefront illuminated at dusk" fetchpriority="high"><div class="auth-art-in"><span class="eyebrow" style="color:var(--brand-2)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span><h2>Join 1.1 million families who never run out</h2><p>One account for you, your partner and your parents. Caregiver access means one person can manage three prescription files.</p><div class="auth-feat"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Free delivery above &#8377;499</span></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Refill reminders two days early</span></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Free pharmacist consults</span></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>One-tap reorder from history</span></div></div></div></aside>
+</main><div class="toast-wrap"></div>
+<script src="js/script.js"></script>
+</body>
+</html>

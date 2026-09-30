@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Account Settings | Stackly Pharmacy</title>
+<meta name="description" content="Update your profile, saved addresses, payment methods, notification preferences and sign in security.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dash-body">
+
+<a class="skip" href="#dashmain">Skip to content</a>
+<div class="glow"></div>
+<div class="prog"></div>
+
+<aside class="dside">
+  <div class="dside-brand">
+    <a class="logo" href="user-dashboard.html"><img class="logo-img" src="Assets/logo.webp" alt="Stackly admin console" width="2170" height="725"></a>
+    <button class="dside-x" aria-label="Close navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <nav class="dside-nav" id="dashnav">
+    <span class="dgroup-lbl">Dashboard</span>
+    <a class="dnav" href="user-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg><span>Overview</span></a>
+    <a class="dnav" href="user-orders.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span>Orders</span><em class="dnav-n">2</em></a>
+    <a class="dnav" href="user-prescriptions.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg><span>Prescriptions</span><em class="dnav-n dnav-n--coral">1</em></a>
+    <a class="dnav" href="user-health.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg><span>Health Records</span></a>
+    <a class="dnav is-active" href="user-account.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Account</span></a>
+    <a class="dnav" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>Back to website</span></a>
+  </nav>
+
+  <div class="dside-foot">
+    <div class="dside-card">
+      <span class="ava ava--coral">AR</span>
+      <span class="dn-user-txt"><b>Ananya Rao</b><small>Member since 2021</small></span>
+      <a class="dside-out" href="signin.html" aria-label="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+      </a>
+    </div>
+  </div>
+</aside>
+<div class="dscrim"></div>
+
+<div class="dash">
+
+  <header class="dtop">
+    <div class="dtop-in">
+      <button class="icon-btn dtop-burger" data-side-open aria-label="Open navigation" aria-expanded="false" aria-controls="dashnav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <button class="icon-btn dtop-rail" data-rail aria-label="Collapse sidebar" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
+      </button>
+      <div class="dtop-crumb">
+        <h1>Account</h1>
+        <p>Ananya Rao &middot; member since 2021</p>
+      </div>
+      <div class="dtop-act">
+        <label class="dsearch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.1-4.1"/></svg>
+          <input type="search" placeholder="Search settings&hellip;" aria-label="Search">
+          <kbd>/</kbd>
+        </label>
+        <button class="icon-btn" data-dd="notif" aria-label="Notifications" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.27 21a2 2 0 0 0 3.46 0"/><path d="M3.26 15.33A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.67C19.41 13.87 18 12.3 18 8A6 6 0 0 0 6 8c0 4.3-1.41 5.87-2.74 7.33"/></svg>
+          <span class="badge">4</span>
+        </button>
+        <button class="duser" data-dd="usermenu" aria-label="Your account" aria-expanded="false">
+          <span class="ava ava--coral">AR</span>
+          <span class="duser-tx"><b>Ananya</b><small>Member</small></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="ddrop" data-ddpanel="notif">
+      <div class="ddrop-hd"><b>Notifications</b><span>4 unread</span></div>
+      <a class="dnote" href="user-orders.html">
+        <span class="dnote-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+        <span style="flex:1"><b>#MC-48120 is 3 stops away</b><small>Rider Karthik &middot; expected by 4:30 PM</small></span><time>12m</time>
+      </a>
+      <a class="dnote" href="user-orders.html">
+        <span class="dnote-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+        <span style="flex:1"><b>#MC-48105 packed and ready for pickup</b><small>Chinna Thirupathi branch &middot; hold until 6 Oct</small></span><time>3h</time>
+      </a>
+      <a class="dnote" href="user-prescriptions.html">
+        <span class="dnote-ic--violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+        <span style="flex:1"><b>Refill due in 4 days</b><small>Metformin 500mg &middot; 30 tablets left</small></span><time>1d</time>
+      </a>
+      <a class="dnote" href="user-health.html">
+        <span class="dnote-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6"/></svg></span>
+        <span style="flex:1"><b>Lab report is ready</b><small>Lipid profile &middot; 22 Sep 2026</small></span><time>2d</time>
+      </a>
+      <div class="ddrop-ft"><a href="user-account.html">Notification settings<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+
+    <div class="ddrop" data-ddpanel="usermenu">
+      <div class="ddrop-hd"><b>Ananya Rao</b><span>ananya.rao@gmail.com</span></div>
+      <ul class="dmenu">
+        <li><a href="user-account.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile &amp; addresses</a></li>
+        <li><a href="user-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Back to overview</a></li>
+        <li><a class="is-bad" href="signin.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>Sign out</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="dmain" id="dashmain">
+<!-- 1 · ACCOUNT KPIs -->
+    <section class="dsec" data-rv>
+      <div class="kpis">
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+            <span class="ddelta ddelta--flat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>Gold</span>
+          </div>
+          <div class="kpi-v"><span data-count="24">0</span></div>
+          <div class="kpi-l">Orders placed</div>
+          <div class="kpi-foot">Since you joined in 2021</div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic kpi-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>320 pts</span>
+          </div>
+          <div class="kpi-v"><span data-count="1840">0</span></div>
+          <div class="kpi-l">Reward points</div>
+          <div class="kpi-foot">Worth &#8377;184 in discounts</div>
+        </article>
+
+        <article class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>1 new</span>
+          </div>
+          <div class="kpi-v"><span data-count="3">0</span></div>
+          <div class="kpi-l">Saved addresses</div>
+          <div class="kpi-foot">Home, work, parents</div>
+        </article>
+
+        <article class="kpi kpi--dark">
+          <div class="kpi-top">
+            <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2"/><rect x="3" y="7" width="18" height="14" rx="2"/></svg></span>
+            <span class="ddelta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>All secure</span>
+          </div>
+          <div class="kpi-v"><span data-count="2">0</span></div>
+          <div class="kpi-l">Signed in devices</div>
+          <div class="kpi-foot">Last sign in today, 8:02 AM</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2 · PROFILE + NOTIFICATIONS -->
+    <section class="dsec" data-rv>
+      <div class="dgrid dg-split">
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Profile details</h3>
+              <p>Used on every prescription and invoice</p>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="frow">
+              <div class="field">
+                <label for="ac-first">First name</label>
+                <input class="inp" id="ac-first" name="first" type="text" value="Ananya" data-session-first>
+              </div>
+              <div class="field">
+                <label for="ac-last">Last name</label>
+                <input class="inp" id="ac-last" name="last" type="text" value="Rao" data-session-last>
+              </div>
+            </div>
+            <div class="field">
+              <label for="ac-email">Email address <span class="req">*</span></label>
+              <input class="inp" id="ac-email" name="email" type="email" value="ananya.rao@gmail.com" data-session-mail>
+              <p class="err">Enter a valid Gmail address ending with @gmail.com</p>
+              <p class="form-note">Prescription copies and lab reports are sent here. Use a Gmail address ending in @gmail.com.</p>
+            </div>
+            <div class="frow">
+              <div class="field">
+                <label for="ac-phone">Phone <span class="req">*</span></label>
+                <input class="inp" id="ac-phone" name="phone" type="tel" value="+91 98204 41120">
+              </div>
+              <div class="field">
+                <label for="ac-dob">Date of birth</label>
+                <input class="inp" id="ac-dob" name="dob" type="text" value="14 March 1989">
+              </div>
+            </div>
+            <div class="frow">
+              <div class="field">
+                <label for="ac-blood">Blood group</label>
+                <select class="inp" id="ac-blood" name="blood">
+                  <option>B+</option>
+                  <option>A+</option>
+                  <option>O+</option>
+                  <option>AB+</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="ac-height">Height</label>
+                <input class="inp" id="ac-height" name="height" type="text" value="165 cm">
+              </div>
+            </div>
+            <label class="chk">
+              <input type="checkbox" checked>
+              <span>My pharmacist may use these details to check dosages against my other medicines.</span>
+            </label>
+          </div>
+          <div class="panel-ft">
+            <button class="btn btn--primary btn--sm" data-dsave="Profile">Save changes</button>
+            <button class="btn btn--ghost btn--sm" data-rowact data-msg="Profile changes discarded.">Discard</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Notifications</h3>
+              <p>Choose what we send and where</p>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="dqa">
+              <div class="dqa-ic">
+                <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7Z"/></svg></span>
+                <span class="dqa-tx"><b>Order updates</b><small>Packed, out for delivery, delivered</small></span>
+              </div>
+              <label class="dswitch">
+                <input type="checkbox" checked aria-label="Order updates">
+                <span></span>
+              </label>
+            </div>
+            <div class="dqa">
+              <div class="dqa-ic">
+                <span class="kpi-ic kpi-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M12 18v-6M9 15h6"/></svg></span>
+                <span class="dqa-tx"><b>Refill reminders</b><small>Three days before a medicine runs out</small></span>
+              </div>
+              <label class="dswitch">
+                <input type="checkbox" checked aria-label="Refill reminders">
+                <span></span>
+              </label>
+            </div>
+            <div class="dqa">
+              <div class="dqa-ic">
+                <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg></span>
+                <span class="dqa-tx"><b>Lab reports</b><small>As soon as a result is verified</small></span>
+              </div>
+              <label class="dswitch">
+                <input type="checkbox" checked aria-label="Lab reports">
+                <span></span>
+              </label>
+            </div>
+            <div class="dqa">
+              <div class="dqa-ic">
+                <span class="kpi-ic kpi-ic--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>
+                <span class="dqa-tx"><b>Offers and new launches</b><small>Twice a month at most</small></span>
+              </div>
+              <label class="dswitch">
+                <input type="checkbox" aria-label="Offers and new launches">
+                <span></span>
+              </label>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <span>Emergency alerts are always on and cannot be switched off.</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3 · ADDRESSES + PAYMENT -->
+    <section class="dsec" data-rv>
+      <div class="dgrid dg-2">
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Saved addresses</h3>
+              <p>Pick one at checkout, or add a new place</p>
+            </div>
+            <div class="panel-hd-act">
+              <button class="pill" data-rowact data-msg="A new address form has been opened.">Add address</button>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="dlist">
+              <div class="ditem">
+                <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/></svg></span>
+                <span class="ditem-tx">
+                  <b>Home &middot; Flat 402, Sunreach Residency</b>
+                  <small>MMR Complex, Chinna Thirupathi, Salem 636008 &middot; Gate code 4412</small>
+                </span>
+                <span class="sp sp--ok">Default</span>
+              </div>
+              <div class="ditem">
+                <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <span class="ditem-tx">
+                  <b>Work &middot; Level 4, Ardent Business Park</b>
+                  <small>42 Chinna Thirupathi Main Road, Salem 636008</small>
+                </span>
+                <span class="sp sp--mute">Office hours</span>
+              </div>
+              <div class="ditem">
+                <span class="kpi-ic kpi-ic--violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/></svg></span>
+                <span class="ditem-tx">
+                  <b>Parents &middot; 7, 2nd Cross, Richmond Town</b>
+                  <small>Salem 636008 &middot; deliver only on Sundays</small>
+                </span>
+                <span class="sp sp--mute">Sundays</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <button class="btn btn--ghost btn--sm" data-rowact data-msg="Delivery pin dropped on your saved addresses.">Drop a delivery pin</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Payment methods</h3>
+              <p>Cards, UPI and insurance</p>
+            </div>
+            <div class="panel-hd-act">
+              <button class="pill" data-rowact data-msg="Adding a new payment method.">Add method</button>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="dlist">
+              <div class="ditem">
+                <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
+                <span class="ditem-tx">
+                  <b>HDFC Visa &middot;&middot;&middot;&middot; 4412</b>
+                  <small>Expires 09/29 &middot; used for 18 of 24 orders</small>
+                </span>
+                <span class="sp sp--ok">Default</span>
+              </div>
+              <div class="ditem">
+                <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M12 4v16"/><circle cx="12" cy="12" r="9"/></svg></span>
+                <span class="ditem-tx">
+                  <b>UPI &middot; ananya@okhdfcbank</b>
+                  <small>Fastest option &middot; 2% cashback on orders over &#8377;500</small>
+                </span>
+                <span class="sp sp--info">Fast</span>
+              </div>
+              <div class="ditem">
+                <span class="kpi-ic kpi-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></span>
+                <span class="ditem-tx">
+                  <b>MediCare Gold policy</b>
+                  <small>Cashless cover up to &#8377;5,00,000 &middot; valid to 31 Mar 2027</small>
+                </span>
+                <span class="sp sp--violet">Insurance</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <span>Total saved on insurance claims this year <b style="color:var(--ink)">&#8377;6,420</b></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4 · SECURITY + DEVICES -->
+    <section class="dsec" data-rv>
+      <div class="dgrid dg-2">
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Security</h3>
+              <p>Protect your prescriptions and health data</p>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="dqa">
+              <div class="dqa-ic">
+                <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+                <span class="dqa-tx"><b>Password</b><small>Last changed 4 months ago</small></span>
+              </div>
+              <button class="btn btn--ghost btn--sm" data-rowact data-msg="A password reset link has been emailed to you.">Change</button>
+            </div>
+            <div class="dqa">
+              <div class="dqa-ic">
+                <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="dqa-tx"><b>Two factor authentication</b><small>Authenticator app &middot; added 12 Jan 2026</small></span>
+              </div>
+              <span class="sp sp--ok">On</span>
+            </div>
+            <div class="dqa">
+              <div class="dqa-ic">
+                <span class="kpi-ic kpi-ic--gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/></svg></span>
+                <span class="dqa-tx"><b>One time passcodes</b><small>Sent by SMS for every prescription request</small></span>
+              </div>
+              <label class="dswitch">
+                <input type="checkbox" checked aria-label="One time passcodes">
+                <span></span>
+              </label>
+            </div>
+            <div class="dqa">
+              <div class="dqa-ic">
+                <span class="kpi-ic kpi-ic--coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg></span>
+                <span class="dqa-tx"><b>Family sharing</b><small>Let a relative manage refills for you</small></span>
+              </div>
+              <span class="sp sp--mute">Off</span>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <button class="btn btn--ghost btn--sm" data-rowact data-msg="Your data export has been requested and will arrive by email.">Download all my data</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-hd">
+            <div>
+              <h3>Signed in devices</h3>
+              <p>2 active sessions</p>
+            </div>
+            <div class="panel-hd-act">
+              <button class="pill" data-rowact data-msg="All other devices have been signed out.">Sign out others</button>
+            </div>
+          </div>
+          <div class="panel-bd">
+            <div class="dlist">
+              <div class="ditem">
+                <span class="kpi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+                <span class="ditem-tx">
+                  <b>Chrome on Windows</b>
+                  <small>Salem, India &middot; active now</small>
+                </span>
+                <span class="sp sp--ok">This device</span>
+              </div>
+              <div class="ditem">
+                <span class="kpi-ic kpi-ic--sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>
+                <span class="ditem-tx">
+                  <b>Stackly app on iPhone</b>
+                  <small>Salem, India &middot; last seen 2 hours ago</small>
+                </span>
+                <a class="btn btn--ghost btn--sm" href="signin.html">Sign out</a>
+              </div>
+            </div>
+          </div>
+          <div class="panel-ft">
+            <span>Signed in 27 times since January &middot; no unusual activity found</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</div>
+
+<button class="back-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="toast-wrap"></div>
+
+<script src="js/script.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
