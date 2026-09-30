@@ -189,10 +189,10 @@
         if (!btn || !seg.contains(btn)) return;
         $$("button", seg).forEach(function (b) { b.classList.remove("is-on"); });
         btn.classList.add("is-on");
-        var range = btn.getAttribute("data-r");
-        var chart = seg.getAttribute("data-seg-chart");
+        var range = btn.getAttribute("data-range") || btn.getAttribute("data-r");
+        var chart = seg.getAttribute("data-seg-chart") || seg.getAttribute("data-chart");
         if (chart) {
-          var panel = $('[data-chart="' + chart + '"]');
+          var panel = $('.chart[data-chart="' + chart + '"]');
           if (panel) {
             var bars = $$(".chart-b", panel);
             bars.forEach(function (bar, i) {
@@ -203,7 +203,7 @@
             });
           }
         }
-        toast("Showing the last " + range);
+        toast("Showing " + btn.textContent.trim());
       });
     });
   }
@@ -515,26 +515,49 @@
 
     /* save buttons: validate gmail-only email fields first, then -> 404 */
     $$("[data-dsave]").forEach(function (b) {
+      var panel = b.closest(".panel");
+      var fields = panel ? $$("[required]", panel) : [];
+
       b.addEventListener("click", function () {
-        var panel = b.closest(".panel");
-        var mails = panel ? $$('input[type="email"]', panel) : [];
         var bad = false;
-        mails.forEach(function (el) {
-          var v = (el.value || "").trim();
-          var msg = !v ? "Email address is required" : !GMAIL_RE.test(v) ? GMAIL_MSG : "";
+        var firstBad = null;
+        fields.forEach(function (el) {
+          var value = (el.value || "").trim();
+          var msg = el.type === "email"
+            ? (!value ? "Email address is required" : !GMAIL_RE.test(value) ? GMAIL_MSG : "")
+            : (el.type === "checkbox" ? !el.checked : !value)
+              ? (el.getAttribute("data-required-error") || "This field is required")
+              : "";
           el.classList.toggle("is-bad", !!msg);
           var err = el.parentNode && el.parentNode.querySelector(".err");
           if (err) {
             if (msg) err.textContent = msg;
             err.classList.toggle("show", !!msg);
           }
-          if (msg) { bad = true; el.focus(); }
+          if (msg) {
+            bad = true;
+            if (!firstBad) firstBad = el;
+          }
         });
         if (bad) {
-          toast(GMAIL_MSG);
+          if (firstBad) firstBad.focus();
+          toast("Please complete the required fields and correct highlighted details.", "bad");
           return;
         }
         toMissing();
+      });
+
+      fields.forEach(function (el) {
+        function clearError() {
+          var value = (el.value || "").trim();
+          var valid = el.type === "email" ? GMAIL_RE.test(value) : (el.type === "checkbox" ? el.checked : !!value);
+          if (!valid) return;
+          el.classList.remove("is-bad");
+          var err = el.parentNode && el.parentNode.querySelector(".err");
+          if (err) err.classList.remove("show");
+        }
+        el.addEventListener("input", clearError);
+        el.addEventListener("change", clearError);
       });
     });
   }

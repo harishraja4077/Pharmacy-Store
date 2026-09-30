@@ -55,7 +55,7 @@
         <span class="badge" data-cart-count hidden>0</span>
       </button>
       <a class="btn btn--primary btn--sm" href="signin.html" data-mag><span>Signin</span></a>
-      <button class="icon-btn burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      <button class="icon-btn burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     </div>
   </div>
 </header>
@@ -63,6 +63,9 @@
 <div class="drawer">
   <div class="drawer-scrim"></div>
   <div class="drawer-panel">
+        <button class="drawer-close" type="button" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m18 6-12 12M6 6l12 12"/></svg>
+        </button>
     <a class="d-link" href="index.html">Home <span>01</span></a>
     <a class="d-link" href="services.html">Services <span>02</span></a>
     <a class="d-link is-active" href="blog.html">Blog <span>03</span></a>
@@ -222,7 +225,7 @@
           <h3>Get the newsletter</h3>
           <p style="color:var(--muted);font-size:.93rem">One email a week. Three things worth knowing,
             written by a pharmacist, no product pushing.</p>
-          <form class="news-form" style="background:#fff;border-color:var(--line);padding:7px" data-news>
+          <form class="news-form" style="background:#fff;border-color:var(--line);padding:7px" data-news novalidate>
             <input type="email" placeholder="you@gmail.com" required autocomplete="email" aria-label="Email address">
             <button class="btn btn--primary btn--sm" type="submit"><span>Join</span></button>
           </form>
@@ -264,7 +267,7 @@
           city. Written by us, not generated.</p>
       </div>
       <div>
-        <form class="news-form" data-news>
+        <form class="news-form" data-news novalidate>
           <input type="email" placeholder="you@gmail.com" required autocomplete="email" aria-label="Email address">
           <button class="btn btn--light btn--sm" type="submit"><span>Subscribe</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </form>
@@ -305,11 +308,11 @@
       <div>
         <h4>Company</h4>
         <ul>
-          <li><a href="about.html">About us</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li><a href="services.html">All services</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="contact.html">Careers</a></li>
         </ul>
       </div>
       <div>

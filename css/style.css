@@ -317,12 +317,19 @@ body.cur-hot .cur-dot { width: 0; height: 0; }
 }
 .drawer.is-open .drawer-scrim { opacity: 1; }
 .drawer-panel {
-  position: absolute; top: 0; right: 0; bottom: 0; width: min(360px, 86vw);
+  position: absolute; inset: 0; width: 100%; min-height: 100%;
   background: var(--bg); padding: 26px 24px 40px; overflow-y: auto;
   transform: translateX(100%); transition: transform .55s var(--ease);
   display: flex; flex-direction: column; gap: 6px;
 }
 .drawer.is-open .drawer-panel { transform: translateX(0); }
+.drawer-close {
+  width: 44px; height: 44px; margin: 0 0 18px auto; border-radius: 13px;
+  display: grid; place-items: center; background: #fff; box-shadow: var(--sh-1);
+  color: var(--ink); transition: transform .35s var(--spring), color .3s, background .3s;
+}
+.drawer-close:hover { transform: rotate(90deg); color: #fff; background: var(--coral); }
+.drawer-close svg { width: 21px; height: 21px; }
 .drawer-panel a.d-link {
   font-family: "Sora", sans-serif; font-weight: 600; font-size: 1.16rem;
   padding: 14px 12px; border-radius: 14px; display: flex; justify-content: space-between;
@@ -1042,6 +1049,7 @@ select.inp { appearance: none; background-image: linear-gradient(45deg, transpar
 @media (max-width: 1080px) {
   .nav { display: none; }
   .burger { display: grid; }
+  .hdr-act { margin-left: auto; }
   .hero-grid { grid-template-columns: 1fr; gap: 44px; }
   .hero-art { max-width: 540px; margin-inline: auto; }
   .float-card--a { left: -12px; }
@@ -1247,7 +1255,7 @@ h1, h2, h3, h4, p, li, .lead, .hours-row, .eyebrow, .crumb { overflow-wrap: brea
 @media (max-width: 560px) {
   .icon-btn { width: 40px; height: 40px; border-radius: 12px; }
   .icon-btn svg { width: 19px; height: 19px; }
-  .drawer-panel { width: min(340px, 90vw); padding: 22px 18px 34px; }
+  .drawer-panel { padding: 22px 18px 34px; }
   .map-embed--wide { aspect-ratio: auto; min-height: 0; height: 330px; }
   .map-embed iframe { height: 100%; }
   /* an input and a button cannot share a pill on a phone: stack them */

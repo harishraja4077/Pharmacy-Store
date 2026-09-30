@@ -49,10 +49,12 @@
         <div class="field">
           <label for="su-first">First name <span class="req">*</span></label>
           <input class="inp" id="su-first" name="first" type="text" placeholder="As on your ID" required>
+          <p class="err">First name is required</p>
         </div>
         <div class="field">
           <label for="su-last">Last name <span class="req">*</span></label>
           <input class="inp" id="su-last" name="last" type="text" placeholder="Surname" required>
+          <p class="err">Last name is required</p>
         </div>
       </div>
       <div class="field">
@@ -67,8 +69,8 @@
       </div>
       <div class="field">
         <label for="su-pass">Create a password <span class="req">*</span></label>
-        <input class="inp" id="su-pass" name="password" type="password" placeholder="Minimum 8 characters" required>
-        <p class="err">Password is required</p>
+          <input class="inp" id="su-pass" name="password" type="password" placeholder="Minimum 8 characters" minlength="8" pattern="(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}" data-required-error="Password is required" data-invalid-message="Use at least 8 characters, including a number and a symbol." required>
+          <p class="err">Password is required</p>
         <small style="color:var(--muted);font-size:.78rem">At least one number and one symbol.</small>
       </div>
       <div class="field">

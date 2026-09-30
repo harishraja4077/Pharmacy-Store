@@ -920,8 +920,14 @@
 .dprog-ic-tx { min-width: 0; flex: 1; }
 .dprog-ic-tx b { display: block; font-size: .88rem; font-weight: 600; }
 .dprog-ic-tx small { display: block; font-size: .76rem; color: var(--muted); margin-bottom: 7px; }
+.dprog-row .dprog-ic-tx small { white-space: normal; overflow-wrap: anywhere; }
 .dprog-ic > .dprog { flex: 1; min-width: 60px; }
 .dprog-ic > .sp { flex: none; }
+.dprog-row--stack { flex-direction: column; align-items: stretch; gap: 4px; }
+.dprog-row--stack > .dprog-ic { box-sizing: border-box; width: 100%; min-width: 0; padding: 8px 10px; }
+.dprog-row--stack .dprog-ic-tx,
+.dprog-row--stack .dprog-ic-tx b,
+.dprog-row--stack .dprog-ic-tx small { white-space: normal; overflow-wrap: anywhere; }
 
 /* spark bars inside a KPI */
 .spark {

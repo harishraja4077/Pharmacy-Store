@@ -118,11 +118,24 @@
     var btn = $(".burger");
     var dr = $(".drawer");
     if (!btn || !dr) return;
-    function open() { dr.classList.add("is-open"); document.body.classList.add("is-locked"); }
-    function close() { dr.classList.remove("is-open"); document.body.classList.remove("is-locked"); }
+    var closeBtn = $(".drawer-close", dr);
+    function open() {
+      dr.classList.add("is-open");
+      document.body.classList.add("is-locked");
+      btn.setAttribute("aria-expanded", "true");
+      if (closeBtn) closeBtn.focus();
+    }
+    function close() {
+      if (!dr.classList.contains("is-open")) return;
+      dr.classList.remove("is-open");
+      document.body.classList.remove("is-locked");
+      btn.setAttribute("aria-expanded", "false");
+      btn.focus();
+    }
     btn.addEventListener("click", function () {
       dr.classList.contains("is-open") ? close() : open();
     });
+    if (closeBtn) closeBtn.addEventListener("click", close);
     $(".drawer-scrim", dr).addEventListener("click", close);
     $$("a", dr).forEach(function (a) { a.addEventListener("click", close); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
@@ -365,20 +378,6 @@
     if (el) toMissing(e);
   }, true);
 
-  /* ---------------- signed-in account ----------------
-     The auth forms hand the address to the dashboards, so every dashboard
-     can show the account that is actually signed in. */
-  var SESSION_KEY = "stackly_session";
-
-  function saveSession(email, role) {
-    if (!email) return;
-    try {
-      localStorage.setItem(SESSION_KEY, JSON.stringify({
-        email: email, role: role || "", at: Date.now()
-      }));
-    } catch (e) {}
-  }
-
   /* ---------------- cart ---------------- */
   function cart() {
     var KEY = "stackly_cart";
@@ -469,9 +468,16 @@
             return;
           }
           var bad = el.type === "checkbox" ? !el.checked : !el.value.trim();
+          if (!bad && el.type !== "email") bad = !el.validity.valid;
           el.classList.toggle("is-bad", bad);
           var err = el.parentNode.querySelector(".err");
-          if (err) err.classList.toggle("show", bad);
+          if (err) {
+            var message = !el.value.trim()
+              ? el.getAttribute("data-required-error")
+              : el.getAttribute("data-invalid-message");
+            if (bad && message) err.textContent = message;
+            err.classList.toggle("show", bad);
+          }
           if (bad) ok = false;
         });
         var fnote = $(".form-note", form);
@@ -487,25 +493,7 @@
           }
           return;
         }
-        if (fnote) {
-          fnote.classList.remove("is-bad");
-          fnote.querySelector("span").textContent = "Sent. Our pharmacist will reach out shortly.";
-        }
-        var on = picked();
-        /* an auth form hands off to a dashboard once the toast has been read:
-           a role radio picks the destination, otherwise data-goto is the target */
-        var goto = (on && on.getAttribute("data-goto")) || form.getAttribute("data-goto");
-        if (goto) {
-          /* remember which address signed in, the dashboards display it */
-          var mail = $('input[type="email"]', form);
-          saveSession(mail ? mail.value.trim() : "", (on && on.value) || "");
-          var msg = (on && on.getAttribute("data-msg")) || form.getAttribute("data-validate") || "Sent successfully";
-          toast(msg);
-          setTimeout(function () { window.location.href = goto; }, 1100);
-          return;
-        }
-        /* nothing is wired up behind this form yet -> 404 */
-        toMissing();
+        toMissing(e);
       });
       $$(".inp", form).forEach(function (el) {
         el.addEventListener("input", function () {
