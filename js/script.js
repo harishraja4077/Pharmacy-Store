@@ -453,6 +453,11 @@
         if (note) note.textContent = on.getAttribute("data-note") || "";
       }
 
+      function goNext() {
+        var goto = (picked() && picked().getAttribute("data-goto")) || form.getAttribute("data-goto") || "signin.html";
+        window.location.href = goto;
+      }
+
       roles.forEach(function (r) {
         r.addEventListener("change", paint);
       });
@@ -493,7 +498,7 @@
           }
           return;
         }
-        toMissing(e);
+        goNext();
       });
       $$(".inp", form).forEach(function (el) {
         el.addEventListener("input", function () {

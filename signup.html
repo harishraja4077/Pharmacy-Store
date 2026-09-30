@@ -25,10 +25,10 @@
     <p style="color:var(--muted);margin-bottom:30px">Takes about a minute. Your first order gets
       &#8377;150 off above &#8377;599, and refill reminders are switched on by default.</p>
 
-    <form novalidate data-validate="Account created. Setting up your dashboard." data-goto="user-dashboard.html">
+    <form novalidate data-validate="Account created. Redirecting to sign in." data-goto="signin.html">
       <div class="role-pick">
         <input type="radio" name="role" id="su-role-user" value="user" checked
-          data-goto="user-dashboard.html" data-label="Create my account" data-msg="Account created. Setting up your dashboard."
+          data-goto="signin.html" data-label="Create my account" data-msg="Account created. Redirecting to sign in."
           data-note="For patients ordering medicines for themselves or their family.">
         <label for="su-role-user">
           <span class="role-pick-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
@@ -36,7 +36,7 @@
         </label>
 
         <input type="radio" name="role" id="su-role-admin" value="admin"
-          data-goto="admin-dashboard.html" data-label="Request staff access" data-msg="Request sent. Your store manager approves staff access."
+          data-goto="signin.html" data-label="Request staff access" data-msg="Account created. Redirecting to sign in."
           data-note="For pharmacists, technicians and store managers. Access is approved by your branch manager.">
         <label for="su-role-admin">
           <span class="role-pick-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></span>
@@ -79,7 +79,12 @@
       </div>
       <label class="chk" style="margin-bottom:14px">
         <input type="checkbox" name="terms" required>
-        <span>I have read and accept the terms of service and the privacy policy.</span>
+        <span class="chk-text">
+          I have read and accept the
+          <a href="404.html" target="_blank" rel="noreferrer">Terms of Service</a>
+          and
+          <a href="404.html" target="_blank" rel="noreferrer">Privacy Policy</a>.
+        </span>
         <span class="err" style="flex:0 0 100%">Please accept the terms to continue</span>
       </label>
       <label class="chk" style="margin-bottom:22px">
