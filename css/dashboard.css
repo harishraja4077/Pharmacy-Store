@@ -1458,7 +1458,7 @@
 }
 .dprod:hover { transform: translateY(-8px); box-shadow: var(--sh-2); }
 .dprod-img { position: relative; overflow: hidden; background: var(--brand-tint); }
-.dprod-img img { width: 100%; aspect-ratio: 1/1; object-fit: cover; transition: transform .95s var(--ease); }
+.dprod-img img { width: 100%; height: auto; aspect-ratio: 1/1; object-fit: cover; transition: transform .95s var(--ease); }
 .dprod:hover .dprod-img img { transform: scale(1.1); }
 .dprod-img::after {
   content: "";
@@ -1530,9 +1530,9 @@
   transition: transform .5s var(--ease), background .4s;
 }
 .dgauge:hover { transform: translateY(-6px); background: var(--brand-tint); }
-.dgauge-tx { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
-.dgauge-tx b { font: 700 1.5rem/1 "Sora", sans-serif; }
-.dgauge-tx span { font-size: .74rem; color: var(--muted); }
+.dgauge-tx { display: grid; gap: 4px; min-width: 0; margin-bottom: 10px; }
+.dgauge-tx b { min-width: 0; font: 700 1rem/1.25 "Sora", sans-serif; overflow-wrap: anywhere; }
+.dgauge-tx small, .dgauge-tx span { min-width: 0; font-size: .74rem; line-height: 1.35; color: var(--muted); overflow-wrap: anywhere; }
 .dgauge-l { font-size: .82rem; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
 .dgauge-l svg { width: 15px; height: 15px; color: var(--brand); }
 .dgauge small { font-size: .76rem; color: var(--muted); }
@@ -1580,6 +1580,7 @@
 .dqa-tx { min-width: 0; }
 .dqa-tx b { display: block; font-size: .91rem; transition: color .4s; }
 .dqa-tx small { display: block; font-size: .78rem; color: var(--muted); transition: color .4s; }
+.panel--security .panel-bd { display: grid; gap: 12px; }
 .dqa--coral .dqa-ic { background: var(--coral-tint); color: var(--coral); }
 .dqa--gold .dqa-ic { background: var(--gold-tint); color: #C9922E; }
 .dqa--violet .dqa-ic { background: var(--violet-tint); color: var(--violet); }
