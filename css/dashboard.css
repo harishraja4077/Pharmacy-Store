@@ -551,6 +551,7 @@
 .dg-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .dg-auto { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
 .dg-auto-lg { grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); }
+.dgrid[data-reorder-items] { grid-template-columns: repeat(auto-fill, minmax(min(100%, 310px), 1fr)); }
 .dg-split { grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); }
 .dg-split-r { grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr); }
 .dg-stack { display: grid; gap: 22px; align-content: start; }
@@ -1938,5 +1939,5 @@
    17 · LOGO IMAGE (Assets/logo.webp, 2170x725)
    The sidebar brand is the same flat logo image sized to the rail.
    -------------------------------------------------------------------------- */
-.dside-brand .logo-img { height: 30px; }
+.dside-brand .logo-img { height: 40px; }
 

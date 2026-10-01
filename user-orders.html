@@ -417,12 +417,16 @@
           <p>Your most reordered medicines, one tap from a new pack.</p>
         </div>
         <div class="dsec-hd-act">
-          <div class="dtabs"><button class="dtab is-on">All time</button><button class="dtab">Last 90 days</button><button class="dtab">Most frequent</button></div>
+          <div class="dtabs" data-reorder-filter>
+            <button class="dtab is-on" type="button" data-filter="all" aria-pressed="true">All time</button>
+            <button class="dtab" type="button" data-filter="30" aria-pressed="false">Every 30 days</button>
+            <button class="dtab" type="button" data-filter="60" aria-pressed="false">Every 60 days</button>
+          </div>
         </div>
       </div>
 
-      <div class="dgrid dg-auto-lg">
-        <article class="dprod">
+      <div class="dgrid dg-auto-lg" data-reorder-items>
+        <article class="dprod" data-frequency="30">
           <div class="dprod-img">
             <img width="420" height="420" src="Assets/prod-tablet.webp" alt="Metformin 500mg tablets" loading="lazy">
             <span class="tag">Every 30 days</span>
@@ -438,7 +442,7 @@
           </div>
         </article>
 
-        <article class="dprod">
+        <article class="dprod" data-frequency="60">
           <div class="dprod-img">
             <img width="420" height="420" src="Assets/prod-capsule.webp" alt="Atorvastatin capsules" loading="lazy">
             <span class="tag tag--violet">Every 60 days</span>
@@ -454,7 +458,7 @@
           </div>
         </article>
 
-        <article class="dprod">
+        <article class="dprod" data-frequency="as-needed">
           <div class="dprod-img">
             <img width="420" height="420" src="Assets/prod-syrup.webp" alt="Cough syrup bottle" loading="lazy">
             <span class="tag tag--sky">As needed</span>
@@ -472,7 +476,7 @@
           </div>
         </article>
 
-        <article class="dprod">
+        <article class="dprod" data-frequency="30">
           <div class="dprod-img">
             <img width="420" height="420" src="Assets/prod-vitamin-c.webp" alt="Vitamin C supplement" loading="lazy">
             <span class="tag tag--gold">Every 30 days</span>

@@ -208,6 +208,32 @@
     });
   }
 
+  /* ---------- reorder shortcuts: filter by refill frequency --------------- */
+  function dReorderFilters() {
+    $$('[data-reorder-filter]').forEach(function (controls) {
+      var grid = $('[data-reorder-items]');
+      if (!grid) return;
+      var cards = $$('.dprod', grid);
+      var buttons = $$('[data-filter]', controls);
+
+      controls.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-filter]');
+        if (!btn || !controls.contains(btn)) return;
+
+        buttons.forEach(function (button) {
+          var selected = button === btn;
+          button.classList.toggle('is-on', selected);
+          button.setAttribute('aria-pressed', selected ? 'true' : 'false');
+        });
+
+        var filter = btn.getAttribute('data-filter');
+        cards.forEach(function (card) {
+          card.hidden = filter !== 'all' && card.getAttribute('data-frequency') !== filter;
+        });
+      });
+    });
+  }
+
   /* ---------- reveal + draw ----------------------------------------------- */
   var PAINTABLE = ".dprog > i, .spark > i, .chart-b, .dring";
 
@@ -717,6 +743,7 @@
     dDrop();
     dSearch404();
     dTabs();
+    dReorderFilters();
     dTable();
     dRows();
     dDraw();
