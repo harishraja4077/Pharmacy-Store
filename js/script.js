@@ -455,6 +455,15 @@
 
       function goNext() {
         var goto = (picked() && picked().getAttribute("data-goto")) || form.getAttribute("data-goto") || "signin.html";
+        var email = $("#si-email", form);
+        if (email) {
+          try {
+            window.localStorage.setItem("stackly_session", JSON.stringify({
+              email: email.value.trim().toLowerCase(),
+              role: (picked() && picked().value) || "user"
+            }));
+          } catch (err) {}
+        }
         window.location.href = goto;
       }
 
